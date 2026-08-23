@@ -30,7 +30,7 @@
             top: 0;
             background-color: var(--primary);
             color: white;
-            padding: 15px 0;
+            padding: 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             z-index: 1000;
         }
@@ -43,31 +43,56 @@
             padding: 0 20px;
         }
         .nav-brand {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
             letter-spacing: 0.5px;
+            padding: 15px 0;
         }
         .nav-brand span { color: var(--accent); }
-        .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
         .nav-links a {
-            color: #e2e8f0;
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s;
+            padding: 18px 15px;
+            display: block;
+            transition: all 0.2s;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: white; background: rgba(255,255,255,0.05); }
+        .nav-links a.active {
+            color: white;
+            border-bottom: 3px solid var(--accent);
+            background: rgba(255,255,255,0.1);
+        }
 
-        /* 主容器 */
+        /* 主内容区域 */
         .container {
             max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
+            min-height: 60vh;
         }
 
-        /* Hero 个人名片区 */
+        /* 切页 Tab 内容控制 */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero 个人名片卡片 */
         .hero-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -92,35 +117,33 @@
             padding: 4px 12px;
             border-radius: 20px;
         }
-        .contact-info p { margin: 5px 0; font-size: 0.95rem; }
+        .contact-info p { margin: 6px 0; font-size: 0.95rem; }
         .contact-info a { color: var(--secondary); text-decoration: none; font-weight: 500; }
-        .contact-info a:hover { text-decoration: underline; }
 
-        /* 通用板块标题 */
+        /* 板块标题 */
         .section-title {
             font-size: 1.5rem;
             color: var(--primary);
             border-left: 5px solid var(--secondary);
             padding-left: 12px;
-            margin: 40px 0 20px 0;
+            margin: 0 0 25px 0;
             font-weight: 700;
         }
 
-        /* 新闻/动态 Timeline */
+        /* 新闻列表 */
         .news-box {
             background: var(--card-bg);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            max-height: 280px;
-            overflow-y: auto;
         }
         .news-item {
             display: flex;
             gap: 15px;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             border-bottom: 1px dashed #e2e8f0;
+            align-items: flex-start;
         }
         .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         .news-date {
@@ -128,23 +151,22 @@
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
-            height: fit-content;
             white-space: nowrap;
         }
-        .news-text { font-size: 0.95rem; color: var(--text-dark); margin: 0; }
+        .news-text { font-size: 1rem; color: var(--text-dark); margin: 0; line-height: 1.6; }
 
-        /* 研究方向 Grid */
+        /* 研究方向 */
         .grid-2x2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
         .research-card {
             background: var(--card-bg);
             border-radius: 10px;
-            padding: 22px;
+            padding: 25px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
             border: 1px solid #e2e8f0;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -154,28 +176,28 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             border-color: var(--secondary);
         }
-        .research-card h3 { color: var(--primary); font-size: 1.1rem; margin-top: 0; }
-        .research-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+        .research-card h3 { color: var(--primary); font-size: 1.15rem; margin-top: 0; }
+        .research-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
 
         /* 论文列表 */
         .pub-card {
             background: var(--card-bg);
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 22px;
+            margin-bottom: 18px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            border-left: 3px solid var(--secondary);
+            border-left: 4px solid var(--secondary);
         }
-        .pub-title { font-weight: 700; font-size: 1.05rem; color: var(--primary); margin-bottom: 5px; }
-        .pub-authors { font-size: 0.95rem; color: #334155; margin-bottom: 5px; }
-        .pub-authors strong { color: var(--primary); text-decoration: underline; }
+        .pub-title { font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 6px; }
+        .pub-authors { font-size: 0.95rem; color: #334155; margin-bottom: 6px; }
+        .pub-authors strong { color: var(--primary); }
         .pub-journal { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
-        .pub-links { margin-top: 10px; display: flex; gap: 10px; }
+        .pub-links { margin-top: 12px; display: flex; gap: 10px; }
         .btn-link {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 4px;
             border: 1px solid var(--secondary);
             color: var(--secondary);
@@ -188,15 +210,16 @@
         footer {
             text-align: center;
             padding: 30px 0;
-            margin-top: 50px;
+            margin-top: 60px;
             background: var(--primary);
             color: #94a3b8;
             font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 10px; }
-            .hero-card { padding: 20px; }
+            .nav-container { flex-direction: column; }
+            .nav-links { width: 100%; justify-content: space-around; }
+            .nav-links a { padding: 12px 8px; font-size: 0.85rem; }
             .hero-title { font-size: 1.7rem; }
         }
     </style>
@@ -206,44 +229,47 @@
     <!-- 顶部导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-brand">SMS LAB <span>| BIT</span></a>
+            <a href="javascript:void(0)" onclick="switchTab('about')" class="nav-brand">SMS LAB <span>| BIT</span></a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#joinus">Join Us</a></li>
+                <li><a id="nav-about" onclick="switchTab('about')" class="active">About</a></li>
+                <li><a id="nav-news" onclick="switchTab('news')">News</a></li>
+                <li><a id="nav-research" onclick="switchTab('research')">Research</a></li>
+                <li><a id="nav-publications" onclick="switchTab('publications')">Publications</a></li>
+                <li><a id="nav-joinus" onclick="switchTab('joinus')">Join Us</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
 
-        <!-- 个人简介名片区 -->
-        <section id="about" class="hero-card">
-            <div class="hero-main">
-                <h1 class="hero-title">王晓毅 教授 (Xiaoyi Wang)</h1>
-                <div class="hero-subtitle">北京理工大学 集成电路与电子学院 | 博士生导师</div>
-                <div class="badges">
-                    <span class="badge">国家级海外高层次青年人才</span>
-                    <span class="badge">集成声光电教育部工程研究中心副主任</span>
-                    <span class="badge">MEMS与智能微系统研究所执行所长</span>
-                </div>
-                <div class="contact-info">
-                    <p>📍 <strong>地址</strong>：北京市海淀区中关村南大街5号 北京理工大学</p>
-                    <p>🏛️ <strong>兼职</strong>：中国仪器仪表学会声学仪器专委会委员 | 《Chip》青年编委 | 迈瑞医疗顾问</p>
-                    <p>🔗 <strong>学术主页</strong>：<a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
+        <!-- 页面 1: ABOUT (关于 / 主页) -->
+        <div id="tab-about" class="tab-content active">
+            <div class="hero-card">
+                <div class="hero-main">
+                    <h1 class="hero-title">王晓毅 教授 (Xiaoyi Wang)</h1>
+                    <div class="hero-subtitle">北京理工大学 集成电路与电子学院 | 博士生导师</div>
+                    <div class="badges">
+                        <span class="badge">国家级海外高层次青年人才</span>
+                        <span class="badge">集成声光电教育部工程研究中心副主任</span>
+                        <span class="badge">MEMS与智能微系统研究所执行所长</span>
+                    </div>
+                    <div class="contact-info">
+                        <p>📍 <strong>办公地址</strong>：北京市海淀区中关村南大街5号 北京理工大学</p>
+                        <p>🏛️ <strong>学术兼职</strong>：中国仪器仪表学会声学仪器专委会委员 | 《Chip》青年编委 | 迈瑞医疗顾问</p>
+                        <p>🔗 <strong>学术主页</strong>：<a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 个人简介 -->
-        <p style="font-size: 1.05rem; line-height: 1.8; color: #334155;">
-            <strong>王晓毅教授</strong>于2020年毕业于香港科技大学获工学博士学位，2020–2021年在香港科技大学从事博士后研究。2022年加盟北京理工大学，2023年入选国家海外高层次青年人才计划。主要研究方向包括微纳制造、微机电系统(MEMS)、智能传感器与驱动器、ASIC接口电路等。主持国家自然科学基金、科技部重点研发计划、工信部项目及华为海外人才计划等项目10余项。在 <em>IEEE JSSC</em>, <em>TIE</em>, <em>TIM</em>, <em>EDL</em>, <em>Microsystems & Nanoengineering</em> 等顶级期刊与会议发表论文70余篇，申请/授权发明专利50余项。
-        </p>
+            <div class="section-title">个人简介</div>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #334155; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                <strong>王晓毅教授</strong>于2020年毕业于香港科技大学获工学博士学位，2020–2021年在香港科技大学从事博士后研究。2022年加盟北京理工大学，2023年入选国家海外高层次青年人才计划。<br><br>
+                主要研究方向包括微纳制造、微机电系统(MEMS)、智能传感器与驱动器、ASIC接口电路等。主持国家自然科学基金、科技部重点研发计划、工信部项目及华为海外人才计划等国家级/省部级/企业委托项目10余项。在 <em>IEEE JSSC</em>, <em>TIE</em>, <em>TIM</em>, <em>EDL</em>, <em>Microsystems & Nanoengineering</em> 等顶级期刊与会议发表论文70余篇，申请/授权发明专利50余项。
+            </p>
+        </div>
 
-        <!-- 最新动态 (News) -->
-        <section id="news">
+        <!-- 页面 2: NEWS (最新动态) -->
+        <div id="tab-news" class="tab-content">
             <div class="section-title">Latest News</div>
             <div class="news-box">
                 <div class="news-item">
@@ -263,10 +289,10 @@
                     <p class="news-text">🎉 王晓毅教授入选<strong>国家级海外高层次青年人才计划</strong>。</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 研究方向 (Research Focus) -->
-        <section id="research">
+        <!-- 页面 3: RESEARCH (研究方向) -->
+        <div id="tab-research" class="tab-content">
             <div class="section-title">Research Interests</div>
             <div class="grid-2x2">
                 <div class="research-card">
@@ -286,10 +312,10 @@
                     <p>低功耗微型感知模组开发，应用于高精度工业检测与慢阻肺/呼吸健康监测。</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 代表性论文 (Selected Publications) -->
-        <section id="publications">
+        <!-- 页面 4: PUBLICATIONS (代表性论文) -->
+        <div id="tab-publications" class="tab-content">
             <div class="section-title">Selected Publications</div>
 
             <div class="pub-card">
@@ -297,7 +323,7 @@
                 <div class="pub-authors">W. Xu, <strong>X. Wang*</strong>, Z. Li, Z. Fang, B. Wang, L. Hong, G. Yang, S. Han, X. Zhao, H. Xie</div>
                 <div class="pub-journal">IEEE Journal of Solid-State Circuits (JSSC), 2024.</div>
                 <div class="pub-links">
-                    <a href="#" class="btn-link">DOI</a>
+                    <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">Google Scholar</a>
                     <a href="#" class="btn-link">IEEE Xplore</a>
                 </div>
             </div>
@@ -307,8 +333,7 @@
                 <div class="pub-authors">Y. Liu, C. Wang, G. Ding, ... <strong>X. Wang*</strong></div>
                 <div class="pub-journal">Microsystems & Nanoengineering (Nature Publishing Group), 2025.</div>
                 <div class="pub-links">
-                    <a href="#" class="btn-link">PDF</a>
-                    <a href="#" class="btn-link">Publisher</a>
+                    <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">Publisher Link</a>
                 </div>
             </div>
 
@@ -317,35 +342,72 @@
                 <div class="pub-authors">D. Yue, S. Cai, G. Yang, ... <strong>X. Wang*</strong></div>
                 <div class="pub-journal">Chip, 2026.</div>
                 <div class="pub-links">
-                    <a href="#" class="btn-link">PDF</a>
+                    <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">PDF Link</a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 招生与加入课题组 (Join Us) -->
-        <section id="joinus">
+        <!-- 页面 5: JOIN US (招生与招募) -->
+        <div id="tab-joinus" class="tab-content">
             <div class="section-title">Join Our Lab</div>
-            <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
-                <p style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-top: 0;">
+            <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
+                <p style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-top: 0;">
                     🚀 课题组常年招收硕士、博士、博士后，并鼓励优秀本科生加盟！
                 </p>
-                <ul style="padding-left: 20px; color: var(--text-dark);">
+                <ul style="padding-left: 20px; color: var(--text-dark); line-height: 1.9;">
                     <li><strong>招收专业</strong>：集成电路、电子信息、机械工程、自动化等方向。</li>
-                    <li><strong>科研平台与支持</strong>：提供充足的项目经费与优质芯片/MEMS微纳加工条件。</li>
+                    <li><strong>科研平台与支持</strong>：提供充足的项目经费与优质芯片/MEMS微纳加工与测试条件。</li>
                     <li><strong>国际化交流</strong>：推荐优秀博后及博士生赴香港科技大学、香港大学、慕尼黑工业大学等海外名校联合培养与交流。</li>
-                    <li><strong>培养质量</strong>：指导学生多次荣获集创赛全国一等奖、“挑战杯”银奖；毕业生就职于航天三院、头部高科技企业或赴名校深造。</li>
+                    <li><strong>培养质量</strong>：指导学生多次荣获集创赛全国一等奖、“挑战杯”全国银奖；毕业生就职于航天三院、头部高科技企业或赴名校深造。</li>
                 </ul>
-                <p style="margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem;">
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed #cbd5e1; color: var(--text-muted); font-size: 0.95rem;">
                     📧 <strong>联系方式</strong>：欢迎有志于智能传感器与芯片微系统研究的同学附个人简历邮件联系。
-                </p>
+                </div>
             </div>
-        </section>
+        </div>
 
     </div>
 
     <footer>
         <p>© 2026 Smart Microsystem Sensing Lab (SMS LAB) | Beijing Institute of Technology</p>
     </footer>
+
+    <!-- 切页脚本控制 (JS) -->
+    <script>
+        function switchTab(tabId) {
+            // 隐藏所有切页内容
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // 取消导航栏所有高亮
+            const navs = document.querySelectorAll('.nav-links a');
+            navs.forEach(nav => nav.classList.remove('active'));
+
+            // 显示被选中的切页
+            const selectedTab = document.getElementById('tab-' + tabId);
+            if(selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // 高亮对应的导航菜单
+            const selectedNav = document.getElementById('nav-' + tabId);
+            if(selectedNav) {
+                selectedNav.classList.add('active');
+            }
+
+            // 更新 URL 地址栏 Hash
+            history.pushState(null, null, '#' + tabId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 页面加载时自动获取 URL 中的 Hash 并切换到对应页面
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('tab-' + hash)) {
+                switchTab(hash);
+            }
+        });
+    </script>
 
 </body>
 </html>
