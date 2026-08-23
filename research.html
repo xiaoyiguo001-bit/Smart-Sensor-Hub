@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | 智能微系统感知实验室 (SMS LAB)</title>
+    <style>
+        :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .nav-brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; padding: 16px 0; }
+        .nav-brand span { color: var(--accent); }
+        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; padding: 18px 15px; display: block; font-weight: 500; font-size: 0.95rem; border-bottom: 3px solid transparent; }
+        .nav-links a:hover { color: white; }
+        .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
+
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
+        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 25px; font-weight: 700; }
+        
+        .grid-2x2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .research-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; transition: transform 0.2s; }
+        .research-card:hover { transform: translateY(-4px); border-color: var(--secondary); }
+        .research-card h3 { color: var(--primary); font-size: 1.25rem; margin-top: 0; margin-bottom: 12px; }
+        .research-card p { font-size: 0.98rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
+        footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">SMS LAB <span>| BIT</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="joinus.html">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section-title">Research Interests</div>
+        <div class="grid-2x2">
+            <div class="research-card">
+                <h3>1. 单片集成智能传感器</h3>
+                <p>CMOS-MEMS单片集成、ASIC接口电路设计、数字信号处理与边缘AI传感算法。</p>
+            </div>
+            <div class="research-card">
+                <h3>2. 异质异构集成传感器</h3>
+                <p>压电/磁性功能材料器件、多维感知融合与智能物联网(IoT)应用。</p>
+            </div>
+            <div class="research-card">
+                <h3>3. 柔性多模态感知</h3>
+                <p>融合力、声、磁、电及电化学等多模态柔性感知，服务于智能机器人与人机交互。</p>
+            </div>
+            <div class="research-card">
+                <h3>4. 智能感知微系统</h3>
+                <p>低功耗微型感知模组开发，应用于高精度工业检测与慢阻肺/呼吸健康监测。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Smart Microsystem Sensing Lab (SMS LAB) | Beijing Institute of Technology</p>
+    </footer>
+</body>
+</html>
