@@ -3,120 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王晓毅 教授 | 北京理工大学</title>
+    <title>王晓毅 教授课题组 | 智能微系统感知实验室 (SMS LAB)</title>
     <style>
-        :root { --primary: #003366; --accent: #1e88e5; --text: #333; --bg: #f8f9fa; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px 30px; background: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.05); }
-        header { border-bottom: 2px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: var(--primary); margin: 0 0 10px 0; font-size: 2.2rem; }
-        .title { font-size: 1.1rem; color: #555; margin-bottom: 10px; }
-        .tags span { background: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; margin-right: 5px; font-weight: bold; }
-        section { margin-bottom: 35px; }
-        h2 { color: var(--primary); border-left: 4px solid var(--accent); padding-left: 10px; margin-bottom: 15px; font-size: 1.4rem; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .card { background: #f1f5f9; padding: 15px; border-radius: 6px; border-left: 3px solid var(--accent); }
-        .card h3 { margin: 0 0 8px 0; font-size: 1.05rem; color: var(--primary); }
-        .card p { margin: 0; font-size: 0.9rem; color: #555; }
-        .pub-title { font-weight: bold; }
-        .pub-author { color: #555; font-size: 0.95rem; }
-        .pub-journal { font-style: italic; color: #666; font-size: 0.9rem; }
-        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.85rem; color: #777; }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --primary: #0f2c59;
+            --secondary: #1e88e5;
+            --accent: #00bcd4;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-brand {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .nav-brand span { color: var(--accent); }
+        .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* 主容器 */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Hero 个人名片区 */
+        .hero-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .hero-main { flex: 1; min-width: 300px; }
+        .hero-title { font-size: 2.2rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px; font-weight: 500; }
+        .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .contact-info p { margin: 5px 0; font-size: 0.95rem; }
+        .contact-info a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+        .contact-info a:hover { text-decoration: underline; }
+
+        /* 通用板块标题 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 12px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+        }
+
+        /* 新闻/动态 Timeline */
+        .news-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            max-height: 280px;
+            overflow-y: auto;
+        }
+        .news-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .news-date {
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            height: fit-content;
+            white-space: nowrap;
+        }
+        .news-text { font-size: 0.95rem; color: var(--text-dark); margin: 0; }
+
+        /* 研究方向 Grid */
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .research-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+        }
+        .research-card h3 { color: var(--primary); font-size: 1.1rem; margin-top: 0; }
+        .research-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+        /* 论文列表 */
+        .pub-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-left: 3px solid var(--secondary);
+        }
+        .pub-title { font-weight: 700; font-size: 1.05rem; color: var(--primary); margin-bottom: 5px; }
+        .pub-authors { font-size: 0.95rem; color: #334155; margin-bottom: 5px; }
+        .pub-authors strong { color: var(--primary); text-decoration: underline; }
+        .pub-journal { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
+        .pub-links { margin-top: 10px; display: flex; gap: 10px; }
+        .btn-link {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-link:hover { background: var(--secondary); color: white; }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            background: var(--primary);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 10px; }
+            .hero-card { padding: 20px; }
+            .hero-title { font-size: 1.7rem; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">SMS LAB <span>| BIT</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#joinus">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
-            <h1>王晓毅 教授 (Xiaoyi Wang, Ph.D.)</h1>
-            <div class="title">北京理工大学 集成电路与电子学院 | 准聘教授、博士生导师</div>
-            <div class="tags">
-                <span>国家级海外高层次青年人才</span>
-                <span>教育部工程研究中心副主任</span>
-                <span>MEMS研究所执行所长</span>
-            </div>
-            <p style="margin-top: 15px;">
-                📬 办公地址：北京市海淀区中关村南大街5号 | 🔗 <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank">Google Scholar 主页</a>[cite: 1]<br>
-                🏛️ 学术兼职：中国仪器仪表学会声学仪器专委会委员 | 《Chip》青年编委 | 迈瑞医疗顾问[cite: 1]
-            </p>
-        </header>
 
-        <section>
-            <h2>个人简介</h2>
-            <p>王晓毅教授于2020年毕业于香港科技大学获工学博士学位，2020年至2021年在香港科技大学从事博士后研究[cite: 1]。2022年加盟北京理工大学，2023年入选国家海外高层次青年人才计划[cite: 1]。现任北京理工大学集成电路与电子学院准聘教授、集成声光电教育部工程研究中心副主任、MEMS与智能微系统研究所执行所长（轮值）[cite: 1]。主要研究方向为微纳制造、微机电系统(MEMS)、智能传感器和驱动器、ASIC接口电路等[cite: 1]。主持国家基金委、科技部、工信部、华为及企业委托项目10余项，在 <em>IEEE JSSC</em>, <em>TIE</em>, <em>TIM</em>, <em>EDL</em>, <em>Microsystems & Nanoengineering</em> 等国际顶尖期刊与会议发表论文70余篇，申请/授权发明专利50余项[cite: 1]。</p>
+        <!-- 个人简介名片区 -->
+        <section id="about" class="hero-card">
+            <div class="hero-main">
+                <h1 class="hero-title">王晓毅 教授 (Xiaoyi Wang)</h1>
+                <div class="hero-subtitle">北京理工大学 集成电路与电子学院 | 博士生导师</div>
+                <div class="badges">
+                    <span class="badge">国家级海外高层次青年人才</span>
+                    <span class="badge">集成声光电教育部工程研究中心副主任</span>
+                    <span class="badge">MEMS与智能微系统研究所执行所长</span>
+                </div>
+                <div class="contact-info">
+                    <p>📍 <strong>地址</strong>：北京市海淀区中关村南大街5号 北京理工大学</p>
+                    <p>🏛️ <strong>兼职</strong>：中国仪器仪表学会声学仪器专委会委员 | 《Chip》青年编委 | 迈瑞医疗顾问</p>
+                    <p>🔗 <strong>学术主页</strong>：<a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h2>主要研究方向</h2>
-            <div class="grid">
-                <div class="card">
+        <!-- 个人简介 -->
+        <p style="font-size: 1.05rem; line-height: 1.8; color: #334155;">
+            <strong>王晓毅教授</strong>于2020年毕业于香港科技大学获工学博士学位，2020–2021年在香港科技大学从事博士后研究。2022年加盟北京理工大学，2023年入选国家海外高层次青年人才计划。主要研究方向包括微纳制造、微机电系统(MEMS)、智能传感器与驱动器、ASIC接口电路等。主持国家自然科学基金、科技部重点研发计划、工信部项目及华为海外人才计划等项目10余项。在 <em>IEEE JSSC</em>, <em>TIE</em>, <em>TIM</em>, <em>EDL</em>, <em>Microsystems & Nanoengineering</em> 等顶级期刊与会议发表论文70余篇，申请/授权发明专利50余项。
+        </p>
+
+        <!-- 最新动态 (News) -->
+        <section id="news">
+            <div class="section-title">Latest News</div>
+            <div class="news-box">
+                <div class="news-item">
+                    <span class="news-date">2025.08</span>
+                    <p class="news-text">🏆 指导团队斩获第九届全国大学生集成电路创新创业大赛<strong>全国总决赛一等奖</strong>！</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.07</span>
+                    <p class="news-text">🏆 指导学生获中国大学生机械工程创新创意大赛<strong>国家级二等奖</strong>。</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024.10</span>
+                    <p class="news-text">📄 课题组关于单片集成CMOS-MEMS热式流量传感器SoC成果发表于芯片领域顶刊 <strong>IEEE JSSC</strong>！</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2023.12</span>
+                    <p class="news-text">🎉 王晓毅教授入选<strong>国家级海外高层次青年人才计划</strong>。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 研究方向 (Research Focus) -->
+        <section id="research">
+            <div class="section-title">Research Interests</div>
+            <div class="grid-2x2">
+                <div class="research-card">
                     <h3>1. 单片集成智能传感器</h3>
-                    <p>基于CMOS-MEMS结合ASIC接口电路、数字信号处理与边缘AI算法，实现高精度感知与智能化处理[cite: 1]。</p>
+                    <p>CMOS-MEMS单片集成、ASIC接口电路设计、数字信号处理与边缘AI传感算法。</p>
                 </div>
-                <div class="card">
+                <div class="research-card">
                     <h3>2. 异质异构集成传感器</h3>
-                    <p>基于压电、磁等功能材料制备多维感知器件，实现多模态感知，面向智能物联网与人机交互[cite: 1]。</p>
+                    <p>压电/磁性功能材料器件、多维感知融合与智能物联网(IoT)应用。</p>
                 </div>
-                <div class="card">
-                    <h3>3. 柔性多模态感知传感器</h3>
-                    <p>融合电化学、力、声、磁、电等多模态感知机制，服务于智能机器人与智慧医疗[cite: 1]。</p>
+                <div class="research-card">
+                    <h3>3. 柔性多模态感知</h3>
+                    <p>融合力、声、磁、电及电化学等多模态柔性感知，服务于智能机器人与人机交互。</p>
                 </div>
-                <div class="card">
+                <div class="research-card">
                     <h3>4. 智能感知微系统</h3>
-                    <p>研制低功耗、高性能、微型化感知模组，面向医疗健康（呼吸监测）与工业检测[cite: 1]。</p>
+                    <p>低功耗微型感知模组开发，应用于高精度工业检测与慢阻肺/呼吸健康监测。</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>招生与人才培养</h2>
-            <p><strong>欢迎电子信息、机械、自动化、集成电路等学科的同学报考硕士、博士及博士后！</strong>[cite: 1]</p>
-            <ul>
-                <li>课题组提供充足的科研经费与优质的实验平台，博士及博后有推荐海外知名高校（港科大、港大、慕尼黑工业等）交流的机会[cite: 1]。</li>
-                <li>常年欢迎各年级本科生参与“双创”、学科竞赛与本科毕设[cite: 1]。</li>
-                <li><strong>指导成果</strong>：学生在“挑战杯”（全国银奖）、“集创赛”（全国一等奖/二等奖）、“机械工程创新创意大赛”（国家二等奖）等赛事中多次获奖[cite: 1]。毕业生多赴慕尼黑工业、港大、北大深造或入职航天三院、快手、恒润等头部企业[cite: 1]。</li>
-            </ul>
+        <!-- 代表性论文 (Selected Publications) -->
+        <section id="publications">
+            <div class="section-title">Selected Publications</div>
+
+            <div class="pub-card">
+                <div class="pub-title">A Sub-5mW Monolithic CMOS-MEMS Thermal Flow Sensing SoC With ±6 m/s Linear Range</div>
+                <div class="pub-authors">W. Xu, <strong>X. Wang*</strong>, Z. Li, Z. Fang, B. Wang, L. Hong, G. Yang, S. Han, X. Zhao, H. Xie</div>
+                <div class="pub-journal">IEEE Journal of Solid-State Circuits (JSSC), 2024.</div>
+                <div class="pub-links">
+                    <a href="#" class="btn-link">DOI</a>
+                    <a href="#" class="btn-link">IEEE Xplore</a>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="pub-title">A MEMS wall shear stress sensor with floating cover plate for aerospace flow monitoring in harsh environments</div>
+                <div class="pub-authors">Y. Liu, C. Wang, G. Ding, ... <strong>X. Wang*</strong></div>
+                <div class="pub-journal">Microsystems & Nanoengineering (Nature Publishing Group), 2025.</div>
+                <div class="pub-links">
+                    <a href="#" class="btn-link">PDF</a>
+                    <a href="#" class="btn-link">Publisher</a>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="pub-title">A low-power, high-sensitivity CMOS-MEMS flow sensor for respiration health evaluation</div>
+                <div class="pub-authors">D. Yue, S. Cai, G. Yang, ... <strong>X. Wang*</strong></div>
+                <div class="pub-journal">Chip, 2026.</div>
+                <div class="pub-links">
+                    <a href="#" class="btn-link">PDF</a>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h2>主持科研项目（部分）</h2>
-            <ul>
-                <li><strong>国家级海外高层次青年人才项目</strong>（2023–至今，主持）[cite: 1]</li>
-                <li><strong>国家自然科学基金面上项目</strong>：面向变温高湿呼吸检测的集成传感器协同传感机理与关键技术研究（2023–2026，主持）[cite: 1]</li>
-                <li><strong>工信部重点项目</strong>：单片集成多传感器融合芯片（2023–2026，主持）[cite: 1]</li>
-                <li><strong>科技部重点研发计划子课题</strong>：智能电网等微纳电流芯片用稀土铁性膜制备技术（2023–2026，主持）[cite: 1]</li>
-                <li><strong>华为海外人才计划</strong>（2023–2025，主持）[cite: 1]</li>
-                <li><strong>北京市自然科学基金面上项目</strong>：面向慢阻肺检测的高灵敏单片集成流量传感器（2025–2027，主持）[cite: 1]</li>
-            </ul>
+        <!-- 招生与加入课题组 (Join Us) -->
+        <section id="joinus">
+            <div class="section-title">Join Our Lab</div>
+            <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--accent);">
+                <p style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-top: 0;">
+                    🚀 课题组常年招收硕士、博士、博士后，并鼓励优秀本科生加盟！
+                </p>
+                <ul style="padding-left: 20px; color: var(--text-dark);">
+                    <li><strong>招收专业</strong>：集成电路、电子信息、机械工程、自动化等方向。</li>
+                    <li><strong>科研平台与支持</strong>：提供充足的项目经费与优质芯片/MEMS微纳加工条件。</li>
+                    <li><strong>国际化交流</strong>：推荐优秀博后及博士生赴香港科技大学、香港大学、慕尼黑工业大学等海外名校联合培养与交流。</li>
+                    <li><strong>培养质量</strong>：指导学生多次荣获集创赛全国一等奖、“挑战杯”银奖；毕业生就职于航天三院、头部高科技企业或赴名校深造。</li>
+                </ul>
+                <p style="margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem;">
+                    📧 <strong>联系方式</strong>：欢迎有志于智能传感器与芯片微系统研究的同学附个人简历邮件联系。
+                </p>
+            </div>
         </section>
 
-        <section>
-            <h2>代表性论文（Selected Publications）</h2>
-            <ul>
-                <li>
-                    <span class="pub-title">A Sub-5mW Monolithic CMOS-MEMS Thermal Flow Sensing SoC With ±6 m/s Linear Range</span><br>
-                    <span class="pub-author">W. Xu, <strong>X. Wang*</strong>, Z. Li, Z. Fang, B. Wang, L. Hong, G. Yang, S. Han, X. Zhao, H. Xie</span><br>
-                    <span class="pub-journal">IEEE Journal of Solid-State Circuits (JSSC), 2024.</span>[cite: 1]
-                </li>
-                <li style="margin-top:10px;">
-                    <span class="pub-title">A MEMS wall shear stress sensor with floating cover plate for aerospace flow monitoring in harsh environments</span><br>
-                    <span class="pub-author">Y. Liu, C. Wang, G. Ding, ... <strong>X. Wang*</strong></span><br>
-                    <span class="pub-journal">Microsystems & Nanoengineering, 2025.</span>[cite: 1]
-                </li>
-                <li style="margin-top:10px;">
-                    <span class="pub-title">A low-power, high-sensitivity CMOS-MEMS flow sensor for respiration health evaluation</span><br>
-                    <span class="pub-author">D. Yue, S. Cai, G. Yang, ... <strong>X. Wang*</strong></span><br>
-                    <span class="pub-journal">Chip, 2026.</span>[cite: 1]
-                </li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>© 2026 王晓毅 教授 | 北京理工大学集成电路与电子学院</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>© 2026 Smart Microsystem Sensing Lab (SMS LAB) | Beijing Institute of Technology</p>
+    </footer>
+
 </body>
 </html>
