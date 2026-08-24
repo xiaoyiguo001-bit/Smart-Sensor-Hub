@@ -3,51 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications | 智能微系统感知实验室 (Smart Sensor Group)</title>
+    <title>Publications | Smart Sensor Group</title>
     <style>
-        :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
-        * { box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        :root { 
+            --primary: #0f2c59; 
+            --secondary: #1e88e5; 
+            --accent: #00bcd4; 
+            --bg: #f8fafc; 
+            --text: #1e293b; 
+            --muted: #64748b; 
+        }
         
-        /* 导航栏 */
-        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 100%; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .nav-brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; padding: 16px 0; white-space: nowrap; flex-shrink: 0; }
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+        }
+        
+        /* 导航栏样式（与其他页面完全一致） */
+        .navbar { 
+            background: var(--primary); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+        }
+        .nav-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+        }
+        .nav-brand { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px 0; 
+            white-space: nowrap;
+        }
         .nav-brand span { color: var(--accent); }
-        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: #cbd5e1; text-decoration: none; padding: 18px 15px; display: block; font-weight: 500; font-size: 0.95rem; border-bottom: 3px solid transparent; white-space: nowrap; }
+        .nav-links { 
+            display: flex; 
+            gap: 2px; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .nav-links a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            padding: 18px 12px; 
+            display: block; 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            border-bottom: 3px solid transparent; 
+            white-space: nowrap;
+        }
         .nav-links a:hover { color: white; }
-        .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
+        .nav-links a.active { 
+            color: white; 
+            border-bottom-color: var(--accent); 
+            background: rgba(255,255,255,0.08); 
+        }
 
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
-        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 25px; font-weight: 700; }
+        .container { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 0 20px; 
+            min-height: 70vh; 
+        }
+        
+        .section-title { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            border-left: 5px solid var(--secondary); 
+            padding-left: 12px; 
+            margin-bottom: 10px; 
+            font-weight: 700; 
+        }
+        .section-subtitle { 
+            color: var(--muted); 
+            margin-bottom: 30px; 
+            font-size: 0.95rem; 
+        }
 
-        .pub-card { background: white; border-radius: 10px; padding: 22px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border-left: 4px solid var(--secondary); }
-        .pub-title { font-weight: 700; font-size: 1.1rem; color: var(--primary); margin-bottom: 6px; }
-        .pub-authors { font-size: 0.95rem; color: #334155; margin-bottom: 6px; }
-        .pub-journal { font-style: italic; color: var(--muted); font-size: 0.9rem; }
-        .pub-links { margin-top: 12px; display: flex; gap: 10px; }
-        .btn-link { display: inline-block; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; border: 1px solid var(--secondary); color: var(--secondary); text-decoration: none; transition: all 0.2s; }
-        .btn-link:hover { background: var(--secondary); color: white; }
+        /* 年份区块 */
+        .year-section {
+            margin-bottom: 35px;
+        }
+        .year-heading {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* 论文列表项 */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pub-item {
+            background: white;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        .pub-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(30,136,229,0.08);
+            transform: translateY(-2px);
+        }
+        .pub-title {
+            font-size: 1.05rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .pub-authors strong {
+            color: var(--secondary);
+        }
+        .pub-venue {
+            font-size: 0.88rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* 移动端自适应适配 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+            .nav-brand {
+                padding: 6px 0;
+                font-size: 1.15rem;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-links a {
+                padding: 8px 10px;
+                font-size: 0.86rem;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+        }
 
         footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
-
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; align-items: center; padding: 10px 15px 5px 15px; }
-            .nav-brand { padding: 6px 0; font-size: 1.1rem; text-align: center; white-space: nowrap; }
-            .nav-links { width: 100%; display: flex; justify-content: flex-start; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
-            .nav-links::-webkit-scrollbar { display: none; }
-            .nav-links a { padding: 8px 12px; font-size: 0.9rem; }
-            .container { margin: 15px auto; padding: 0 12px; }
-            .pub-card { padding: 18px 15px; }
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Smart Sensor Group</a>
+            <a href="index.html" class="nav-brand">Smart Sensor Group <span>| BIT</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="news.html">News</a></li>
@@ -61,37 +200,111 @@
 
     <div class="container">
         <div class="section-title">Selected Publications</div>
+        <p class="section-subtitle">📚 课题组近年在国际顶级学术期刊与会议发表的代表性成果（按照年份倒序排列）</p>
 
-        <div class="pub-card">
-            <div class="pub-title">A Sub-5mW Monolithic CMOS-MEMS Thermal Flow Sensing SoC With ±6 m/s Linear Range</div>
-            <div class="pub-authors">W. Xu, <strong>X. Wang*</strong>, Z. Li, Z. Fang, B. Wang, L. Hong, G. Yang, S. Han, X. Zhao, H. Xie</div>
-            <div class="pub-journal">IEEE Journal of Solid-State Circuits (JSSC), 2024.</div>
-            <div class="pub-links">
-                <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">Google Scholar</a>
-            </div>
+        <!-- 2026 年 -->
+        <div class="year-section">
+            <div class="year-heading">2026</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">A High-Fill-Factor Piezoelectric MEMS Mirror Based on Bow-Shaped Unimorph AlN Actuators</div>
+                    <div class="pub-authors">H. Chen, X. Ding, W. Jiao, Q. Liu, K. Cao, X. Mao, S. Jiang, Y. Tang, T. Wu, <strong>Xiaoyi Wang</strong>, H. Xie</div>
+                    <div class="pub-venue">IEEE Transactions on Electron Devices, 73(4), 2161-2167, 2026.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A High-Speed and Stable Flexible Electromagnetic Actuator with Enhanced Vibration Performance for Advanced Tactile Human-Machine Interfaces</div>
+                    <div class="pub-authors">B. Wang, M. Chen, S. Jiang, W. Zhou, H. Xie, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">2026 IEEE 39th International Conference on Micro Electro Mechanical Systems (MEMS), 624-627, 2026.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A low-power, high-sensitivity CMOS-MEMS flow sensor for respiration health evaluation</div>
+                    <div class="pub-authors">D. Yue, S. Cai, G. Yang, Y. Wu, Y. Tang, W. Zhou, W. Xu, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">Chip, 5(2), 100172, 2026.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A Low Power CMOS-MEMS Monolithic Integrated Dual-Mode Thermal Sensor with Thermal Conductivity Compensation for Accurate Binary Gas Measurement</div>
+                    <div class="pub-authors">S. Xu, S. Yin, D. Yue, L. Lu, Y. Tang, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">2026 IEEE 39th International Conference on Micro Electro Mechanical Systems (MEMS), 994-997, 2026.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A Novel Contactless DC Current Sensor Using a Highly Sensitive Thin-Film Lamb Wave Resonator With a Self-Aligned Micromagnet</div>
+                    <div class="pub-authors">W. Gao, F. Gao, C. Zhu, H. Xie, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">IEEE Transactions on Industrial Electronics, 73(1), 1459-1468, 2026.</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="pub-card">
-            <div class="pub-title">A MEMS wall shear stress sensor with floating cover plate for aerospace flow monitoring in harsh environments</div>
-            <div class="pub-authors">Y. Liu, C. Wang, G. Ding, ... <strong>X. Wang*</strong></div>
-            <div class="pub-journal">Microsystems & Nanoengineering (Nature Publishing Group), 2025.</div>
-            <div class="pub-links">
-                <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">Publisher Link</a>
-            </div>
+        <!-- 2024 年 -->
+        <div class="year-section">
+            <div class="year-heading">2024</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">A high-sensitivity magnetic tactile sensor with a structure-optimized Hall sensor and a flexible magnetic film</div>
+                    <div class="pub-authors">X. Li, R. Deng, W. Jiao, S. Xu, H. Xie, D. Han, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">IEEE Sensors Journal, 24(10), 15935-15944, 2024.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A high-performance surface acoustic wave humidity sensor with uniform multiwrinkled graphene oxide film</div>
+                    <div class="pub-authors">G. Yang, L. Peng, S. Cai, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
+                    <div class="pub-venue">ACS Sensors, 9(12), 6621-6629, 2024.</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="pub-card">
-            <div class="pub-title">A low-power, high-sensitivity CMOS-MEMS flow sensor for respiration health evaluation</div>
-            <div class="pub-authors">D. Yue, S. Cai, G. Yang, ... <strong>X. Wang*</strong></div>
-            <div class="pub-journal">Chip, 2026.</div>
-            <div class="pub-links">
-                <a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank" class="btn-link">PDF Link</a>
-            </div>
+        <!-- 2023 年 -->
+        <div class="year-section">
+            <div class="year-heading">2023</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">Vertical serpentine interconnect-enabled stretchable and curved electronics</div>
+                    <div class="pub-authors">R. Jiao, R. Wang, Y. Wang, Y.K. Cheung, X. Chen, <strong>Xiaoyi Wang</strong>, Y. Deng, H. Yu</div>
+                    <div class="pub-venue">Microsystems & Nanoengineering, 9(1), 149, 2023.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2022 年 -->
+        <div class="year-section">
+            <div class="year-heading">2022</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">A fast-response breathing monitoring system for human respiration disease detection</div>
+                    <div class="pub-authors"><strong>Xiaoyi Wang</strong>, Z. Ke, G. Liao, X. Pan, Y. Yang, W. Xu</div>
+                    <div class="pub-venue">IEEE Sensors Journal, 22(11), 10411-10419, 2022.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2021 年及更早 -->
+        <div class="year-section">
+            <div class="year-heading">2021 & Earlier</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">A wafer-level packaged CMOS MEMS Pirani vacuum gauge</div>
+                    <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, X. Pan, A. Bermak, Y.K. Lee, Y. Yang</div>
+                    <div class="pub-venue">IEEE Transactions on Electron Devices, 68(10), 5155-5161, 2021.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">Bidirectional CMOS-MEMS airflow sensor with sub-mW power consumption and high sensitivity</div>
+                    <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, Z. Ke, Y.K. Lee</div>
+                    <div class="pub-venue">IEEE Transactions on Industrial Electronics, 69(3), 3183-3192, 2021.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">Two-dimensional CMOS MEMS thermal flow sensor with high sensitivity and improved accuracy</div>
+                    <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, X. Zhao, Y.K. Lee</div>
+                    <div class="pub-venue">Journal of Microelectromechanical Systems, 29(2), 248-254, 2020.</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">A CMOS-MEMS thermoresistive micro calorimetric flow sensor with temperature compensation</div>
+                    <div class="pub-authors">W. Xu, S. Ma, <strong>Xiaoyi Wang</strong>, Y. Chiu, Y.K. Lee</div>
+                    <div class="pub-venue">Journal of Microelectromechanical Systems, 28(5), 841-849, 2019.</div>
+                </li>
+            </ul>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Smart Sensor Group</p>
+        <p>© 2026 Smart Sensor Group | Beijing Institute of Technology</p>
     </footer>
 </body>
 </html>
