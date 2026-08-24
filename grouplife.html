@@ -3,36 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Life | 智能微系统感知实验室 (Smart Sensor Group)</title>
+    <title>Group Life | Smart Sensor Group</title>
     <style>
-        :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        :root { 
+            --primary: #0f2c59; 
+            --secondary: #1e88e5; 
+            --accent: #00bcd4; 
+            --bg: #f8fafc; 
+            --text: #1e293b; 
+            --muted: #64748b; 
+        }
         
-        /* 导航栏 */
-        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .nav-brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; padding: 16px 0; }
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+        }
+        
+        /* 导航栏样式（与其他页面完全一致） */
+        .navbar { 
+            background: var(--primary); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+        }
+        .nav-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+        }
+        .nav-brand { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px 0; 
+            white-space: nowrap;
+        }
         .nav-brand span { color: var(--accent); }
-        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: #cbd5e1; text-decoration: none; padding: 18px 15px; display: block; font-weight: 500; font-size: 0.95rem; border-bottom: 3px solid transparent; }
+        .nav-links { 
+            display: flex; 
+            gap: 2px; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .nav-links a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            padding: 18px 12px; 
+            display: block; 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            border-bottom: 3px solid transparent; 
+            white-space: nowrap;
+        }
         .nav-links a:hover { color: white; }
-        .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
+        .nav-links a.active { 
+            color: white; 
+            border-bottom-color: var(--accent); 
+            background: rgba(255,255,255,0.08); 
+        }
 
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
-        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 10px; font-weight: 700; }
-        .section-subtitle { color: var(--muted); margin-bottom: 30px; font-size: 0.95rem; }
+        .container { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 0 20px; 
+            min-height: 70vh; 
+        }
+        
+        .section-title { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            border-left: 5px solid var(--secondary); 
+            padding-left: 12px; 
+            margin-bottom: 10px; 
+            font-weight: 700; 
+        }
+        .section-subtitle { 
+            color: var(--muted); 
+            margin-bottom: 30px; 
+            font-size: 0.95rem; 
+        }
 
-        /* 团队风采卡片网格 */
-        .life-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        .life-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .life-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-        .life-img-container { width: 100%; height: 200px; background: #e2e8f0; overflow: hidden; }
-        .life-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-        .life-card:hover .life-img { transform: scale(1.05); }
-        .life-content { padding: 20px; }
-        .life-date { font-size: 0.85rem; color: var(--secondary); font-weight: 600; margin-bottom: 6px; }
-        .life-title { font-size: 1.15rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700; }
-        .life-desc { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.6; }
+        /* 团队生活照片展示网格 */
+        .grid-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+        }
+
+        .gallery-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04); 
+            border: 1px solid #e2e8f0; 
+            transition: all 0.3s ease; 
+        }
+        .gallery-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--secondary); 
+            box-shadow: 0 8px 25px rgba(30,136,229,0.15); 
+        }
+        
+        .gallery-img-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-info {
+            padding: 15px 20px;
+        }
+        .gallery-title { 
+            color: var(--primary); 
+            font-size: 1.1rem; 
+            margin: 0 0 6px 0; 
+            font-weight: 700;
+        }
+        .gallery-desc { 
+            font-size: 0.9rem; 
+            color: var(--muted); 
+            margin: 0; 
+            line-height: 1.5; 
+        }
+
+        /* 移动端自适应适配（与其他页面完全一致） */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+            .nav-brand {
+                padding: 6px 0;
+                font-size: 1.15rem;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 5px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-links a {
+                padding: 8px 10px;
+                font-size: 0.86rem;
+            }
+            .grid-gallery { 
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+        }
 
         footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
     </style>
@@ -40,7 +191,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Smart Sensor Group <span></span></a>
+            <a href="index.html" class="nav-brand">Smart Sensor Group <span>| BIT</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="news.html">News</a></li>
@@ -54,61 +205,46 @@
 
     <div class="container">
         <div class="section-title">Group Life & Activities</div>
-        <p class="section-subtitle">🎉 记录实验室的精彩瞬间，包含团队户外团建、学术会议交流、节日聚餐与日常日常</p>
+        <p class="section-subtitle">🎉 记录课题组丰富多彩的科研生活、团建活动、学术会议及毕业合影</p>
 
-        <div class="life-grid">
-            <!-- 活动卡片 1 -->
-            <div class="life-card">
-                <div class="life-img-container">
-                    <img src="https://via.placeholder.com/600x400/0f2c59/ffffff?text=Team+Building+Outdoor" alt="团建活动照片" class="life-img">
+        <div class="grid-gallery">
+            <!-- 活动 1 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://via.placeholder.com/600x400/1e88e5/ffffff?text=Team+Building" alt="团建活动" class="gallery-img">
                 </div>
-                <div class="life-content">
-                    <div class="life-date">2025年10月</div>
-                    <h3 class="life-title">秋季户外扩展与团建活动</h3>
-                    <p class="life-desc">课题组前往郊外开展秋季团建，通过拓展运动与户外烧烤放松身心，增强团队凝聚力。</p>
+                <div class="gallery-info">
+                    <h3 class="gallery-title">实验室春季团建活动</h3>
+                    <p class="gallery-desc">放松身心，增进团队凝聚力，共创和谐向上的实验室文化。</p>
                 </div>
             </div>
 
-            <!-- 活动卡片 2 -->
-            <div class="life-card">
-                <div class="life-img-container">
-                    <img src="https://via.placeholder.com/600x400/1e88e5/ffffff?text=Academic+Conference" alt="学术会议照片" class="life-img">
+            <!-- 活动 2 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://via.placeholder.com/600x400/0f2c59/ffffff?text=Academic+Conference" alt="学术会议" class="gallery-img">
                 </div>
-                <div class="life-content">
-                    <div class="life-date">2025年08月</div>
-                    <h3 class="life-title">参加 IEEE MEMS 国际学术会议</h3>
-                    <p class="life-desc">课题组师生赴会议现场作口头报告与海报展示，与国内外同行深入交流前沿微系统技术。</p>
-                </div>
-            </div>
-
-            <!-- 活动卡片 3 -->
-            <div class="life-card">
-                <div class="life-img-container">
-                    <img src="https://via.placeholder.com/600x400/00bcd4/ffffff?text=Graduation+Celebration" alt="毕业欢送" class="life-img">
-                </div>
-                <div class="life-content">
-                    <div class="life-date">2025年06月</div>
-                    <h3 class="life-title">2025 届毕业生欢送聚餐</h3>
-                    <p class="life-desc">祝贺课题组顺利毕业的硕士与博士研究生！感谢你们对实验室做出的贡献，祝未来前程似锦！</p>
+                <div class="gallery-info">
+                    <h3 class="gallery-title">参加国内外学术会议</h3>
+                    <p class="gallery-desc">积极参与学术交流，汇报最新研究成果，拓宽国际视野。</p>
                 </div>
             </div>
 
-            <!-- 活动卡片 4 -->
-            <div class="life-card">
-                <div class="life-img-container">
-                    <img src="https://via.placeholder.com/600x400/10b981/ffffff?text=Festival+Gathering" alt="节日聚餐" class="life-img">
+            <!-- 活动 3 -->
+            <div class="gallery-card">
+                <div class="gallery-img-box">
+                    <img src="https://via.placeholder.com/600x400/00bcd4/ffffff?text=Graduation+Group+Photo" alt="毕业合影" class="gallery-img">
                 </div>
-                <div class="life-content">
-                    <div class="life-date">2025年01月</div>
-                    <h3 class="life-title">实验室年终聚餐与新春联欢</h3>
-                    <p class="life-desc">回顾过去一年的科研成果，总结经验，欢聚一堂喜迎新春佳节。</p>
+                <div class="gallery-info">
+                    <h3 class="gallery-title">毕业季欢送与合影</h3>
+                    <p class="gallery-desc">祝贺毕业生前程似锦，开启人生崭新华章，常回实验室看看。</p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Smart Sensor Group </p>
+        <p>© 2026 Smart Sensor Group | Beijing Institute of Technology</p>
     </footer>
 </body>
 </html>
