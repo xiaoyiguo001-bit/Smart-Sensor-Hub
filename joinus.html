@@ -30,6 +30,7 @@
             top: 0; 
             z-index: 1000; 
             box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            width: 100%;
         }
         .nav-container { 
             max-width: 1100px; 
@@ -45,6 +46,8 @@
             color: white; 
             text-decoration: none; 
             padding: 16px 0; 
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .nav-brand span { color: var(--accent); }
         .nav-links { 
@@ -96,29 +99,17 @@
             margin-bottom: 30px; 
         }
 
-        .join-sub-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
+        .join-sub-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-top: 20px; margin-bottom: 10px; }
         .join-sub-title:first-child { margin-top: 0; }
-
-        .join-list {
-            padding-left: 20px;
-            margin: 0 0 20px 0;
-            color: #334155;
-            font-size: 0.95rem;
-        }
-
+        .join-list { padding-left: 20px; margin: 0 0 20px 0; color: #334155; font-size: 0.95rem; }
         .join-list li { margin-bottom: 8px; }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; padding: 10px 15px; }
-            .nav-brand { padding: 8px 0; font-size: 1.15rem; }
-            .nav-links { width: 100%; justify-content: space-around; overflow-x: auto; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
-            .nav-links a { padding: 8px 10px; font-size: 0.88rem; }
+            .nav-container { flex-direction: column; align-items: center; padding: 10px 15px 5px 15px; }
+            .nav-brand { padding: 6px 0; font-size: 1.2rem; text-align: center; white-space: nowrap; }
+            .nav-links { width: 100%; display: flex; justify-content: flex-start; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { padding: 8px 12px; font-size: 0.9rem; }
             .container { margin: 15px auto; padding: 0 12px; }
             .card { padding: 20px 18px; }
         }
