@@ -3,153 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us | Smart Sensor Group</title>
+    <title>Join Us | 智能微系统感知实验室 (Smart Sensor Group)</title>
     <style>
-        :root { 
-            --primary: #0f2c59; 
-            --secondary: #1e88e5; 
-            --accent: #00bcd4; 
-            --bg: #f4f7fb; 
-            --text: #1e293b; 
-            --muted: #64748b; 
-        }
-        
+        :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
         * { box-sizing: border-box; }
-
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            margin: 0; 
-            background: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6; 
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
         
-        .navbar { 
-            background: var(--primary); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-            width: 100%;
-        }
-        .nav-container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0 20px; 
-        }
-        .nav-brand { 
-            font-size: 1.25rem; 
-            font-weight: 700; 
-            color: white; 
-            text-decoration: none; 
-            padding: 16px 0; 
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
+        /* 导航栏 */
+        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 100%; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .nav-brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; padding: 16px 0; white-space: nowrap; flex-shrink: 0; }
         .nav-brand span { color: var(--accent); }
-        .nav-links { 
-            display: flex; 
-            gap: 5px; 
-            list-style: none; 
-            margin: 0; 
-            padding: 0; 
-        }
-        .nav-links a { 
-            color: #cbd5e1; 
-            text-decoration: none; 
-            padding: 18px 14px; 
-            display: block; 
-            font-weight: 500; 
-            font-size: 0.95rem; 
-            border-bottom: 3px solid transparent; 
-            white-space: nowrap;
-        }
+        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; padding: 18px 15px; display: block; font-weight: 500; font-size: 0.95rem; border-bottom: 3px solid transparent; white-space: nowrap; }
         .nav-links a:hover { color: white; }
-        .nav-links a.active { 
-            color: white; 
-            border-bottom-color: var(--accent); 
-            background: rgba(255,255,255,0.08); 
-        }
+        .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
 
-        .container { 
-            max-width: 1100px; 
-            margin: 30px auto; 
-            padding: 0 20px; 
-            min-height: 75vh; 
-        }
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
+        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 25px; font-weight: 700; }
 
-        .section-title { 
-            font-size: 1.35rem; 
-            color: var(--primary); 
-            border-left: 4px solid var(--secondary); 
-            padding-left: 10px; 
-            margin-bottom: 20px; 
-            font-weight: 700; 
-        }
+        /* 卡片主体 */
+        .join-box { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); }
+        
+        /* 团队合影大图 */
+        .join-img-container { width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+        .join-img { width: 100%; height: auto; display: block; }
 
-        .card { 
-            background: white; 
-            border-radius: 12px; 
-            padding: 30px 35px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
-            border: 1px solid #e2e8f0; 
-            margin-bottom: 30px; 
-        }
+        /* 招聘要求列表 */
+        .recruit-card { background: #f8fafc; border-radius: 10px; padding: 20px 25px; margin-bottom: 20px; border-left: 4px solid var(--accent); }
+        .recruit-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .recruit-desc { margin: 0; font-size: 1.02rem; color: #334155; line-height: 1.8; }
+        .highlight-text { color: var(--secondary); font-weight: 600; }
 
-        .join-sub-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-top: 20px; margin-bottom: 10px; }
-        .join-sub-title:first-child { margin-top: 0; }
-        .join-list { padding-left: 20px; margin: 0 0 20px 0; color: #334155; font-size: 0.95rem; }
-        .join-list li { margin-bottom: 8px; }
+        /* 联系邮箱区域 */
+        .contact-box { margin-top: 30px; padding: 20px 25px; background: #e0f2fe; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
+        .contact-email { font-size: 1.2rem; font-weight: 700; color: #0369a1; text-decoration: none; margin-left: 5px; word-break: break-all; }
+        .contact-email:hover { text-decoration: underline; }
 
+        footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
+
+        /* 移动端适配 */
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; align-items: center; padding: 10px 15px 5px 15px; }
-            .nav-brand { padding: 6px 0; font-size: 1.2rem; text-align: center; white-space: nowrap; }
+            .nav-brand { padding: 6px 0; font-size: 1.1rem; text-align: center; white-space: nowrap; }
             .nav-links { width: 100%; display: flex; justify-content: flex-start; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
             .nav-links::-webkit-scrollbar { display: none; }
             .nav-links a { padding: 8px 12px; font-size: 0.9rem; }
             .container { margin: 15px auto; padding: 0 12px; }
-            .card { padding: 20px 18px; }
+            .join-box { padding: 20px 15px; }
+            .recruit-card { padding: 15px; }
+            .contact-box { padding: 15px; }
         }
-        
-        footer { text-align: center; padding: 25px 0; margin-top: 40px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Smart Sensor Group <span></span></a>
+            <a href="index.html" class="nav-brand">Smart Sensor Group</a>
             <ul class="nav-links">
                 <li><a href="index.html">About</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="grouplife.html">Group Life</a></li>
                 <li><a href="joinus.html" class="active">Join Us</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <div class="section-title">诚聘英才 (Join Us)</div>
-        <div class="card">
-            <h3 class="join-sub-title">📌 招收说明</h3>
-            <p style="font-size: 0.95rem; color: #334155; margin-bottom: 15px;">
-                课题组常年招收**博士后、博士研究生、硕士研究生及优秀本科实习生**。欢迎具有微电子、集成电路、自动化、仪器科学、物理等相关专业背景的同学加盟！
-            </p>
+        <div class="section-title">Join Our Group</div>
+        <div class="join-box">
+            
+            <!-- 团队合影图片展示 -->
+            <div class="join-img-container">
+                <img src="images/joinus.jpg" alt="智能感知传感器课题组合影" class="join-img">
+            </div>
 
-            <h3 class="join-sub-title">🎯 招生要求</h3>
-            <ul class="join-list">
-                <li>对微纳器件、传感器与集成电路设计有浓厚科研兴趣；</li>
-                <li>具备良好的动手能力、独立思考能力和团队合作精神；</li>
-                <li>具有良好的英文阅读与写作能力。</li>
-            </ul>
+            <!-- 研究生/博士/博后招募 -->
+            <div class="recruit-card">
+                <div class="recruit-title">🎓 研究生、博士及博士后招募</div>
+                <p class="recruit-desc">
+                    欢迎<strong>电子信息、机械、自动化、集成电路</strong>等学科的同学加入课题组攻读硕士、博士、博后。
+                    <span class="highlight-text">（博士和博后有推荐海外交流的机会）</span>
+                </p>
+            </div>
 
-            <h3 class="join-sub-title">✉️ 申请方式</h3>
-            <p style="font-size: 0.95rem; color: #334155; margin: 0;">
-                请将个人简历（包含学习/科研经历、发表论文清单等）发送至王老师邮箱。邮件主题请注明：<strong>[应聘岗位/研究生申请] + 姓名 + 毕业学校</strong>。
-            </p>
+            <!-- 本科生招募 -->
+            <div class="recruit-card">
+                <div class="recruit-title">🌱 本科生科研与双创支持</div>
+                <p class="recruit-desc">
+                    也欢迎各年级的本科生到我们课题组参与<strong>双创、学科竞赛和本科毕设</strong>。
+                </p>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="contact-box">
+                📧 <strong>联系方式</strong>：欢迎意向同学附简历联系邮箱 
+                <a href="mailto:xiaoyiwang@bit.edu.cn" class="contact-email">xiaoyiwang@bit.edu.cn</a>
+            </div>
+
         </div>
     </div>
 
