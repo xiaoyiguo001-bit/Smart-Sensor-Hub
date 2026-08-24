@@ -26,7 +26,7 @@
             line-height: 1.6; 
         }
         
-        /* 导航栏样式（与其他页面完全一致） */
+        /* 导航栏样式 */
         .navbar { 
             background: var(--primary); 
             position: sticky; 
@@ -116,7 +116,7 @@
             font-weight: 700;
             padding: 18px 24px;
             cursor: pointer;
-            list-style: none; /* 隐藏默认小箭头 */
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -125,13 +125,12 @@
             transition: background-color 0.2s ease;
         }
         .category-summary::-webkit-details-marker {
-            display: none; /* 兼容 Safari 隐藏默认箭头 */
+            display: none;
         }
         .category-summary:hover {
             background-color: #f8fafc;
             color: var(--secondary);
         }
-        /* 自定义开关小箭头 */
         .category-summary::after {
             content: "▼";
             font-size: 0.8rem;
@@ -162,7 +161,7 @@
             font-weight: 700;
         }
 
-        /* 论文列表项 */
+        /* 列表项样式 */
         .pub-list {
             list-style: none;
             padding: 0;
@@ -201,7 +200,17 @@
             font-style: italic;
         }
 
-        /* 移动端自适应适配 */
+        /* 专利子标题分类样式 */
+        .patent-subheading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0 10px 0;
+            padding-left: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* 移动端自适应 */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -258,142 +267,674 @@
     </nav>
 
     <div class="container">
-        <div class="section-title">Selected Publications</div>
-        <p class="section-subtitle">📚 课题组近年代表性成果分类展示（点击分类可折叠/展开，内部已按年份倒序排列）</p>
+        <div class="section-title">Selected Publications & Patents</div>
+        <p class="section-subtitle">📚 课题组代表性成果分类展示（点击分类可折叠/展开，内部均已按年份严格倒序排列）</p>
 
-        <!-- 分类一：期刊论文 (Journal Papers) -->
+        <!-- ==================== 分类一：期刊论文 (Journal Papers) ==================== -->
         <details class="category-details" open>
             <summary class="category-summary">
                 <span>期刊论文 (Journal Papers)</span>
             </summary>
             <div class="category-body">
-                <!-- 2026 年 -->
+                <!-- 2026 -->
                 <div class="year-section">
                     <div class="year-heading">2026</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">A High-Fill-Factor Piezoelectric MEMS Mirror Based on Bow-Shaped Unimorph AlN Actuators</div>
-                            <div class="pub-authors">H. Chen, X. Ding, W. Jiao, Q. Liu, K. Cao, X. Mao, S. Jiang, Y. Tang, T. Wu, <strong>Xiaoyi Wang</strong>, H. Xie</div>
-                            <div class="pub-venue">IEEE Transactions on Electron Devices, 73(4), 2161-2167, 2026.</div>
+                            <div class="pub-title">High performance humidity sensing based on shear-horizontal plate wave resonator with highly oxidized graphene oxide</div>
+                            <div class="pub-authors">W. Cheng, W. Gao, L. Peng, Z. Liu, H. Yang, H. Xie, F. Gao*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">Sensors and Actuators B: Chemical, 2026, 464: 140083.</div>
                         </li>
                         <li class="pub-item">
                             <div class="pub-title">A low-power, high-sensitivity CMOS-MEMS flow sensor for respiration health evaluation</div>
-                            <div class="pub-authors">D. Yue, S. Cai, G. Yang, Y. Wu, Y. Tang, W. Zhou, W. Xu, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">Chip, 5(2), 100172, 2026.</div>
-                        </li>
-                        <li class="pub-item">
-                            <div class="pub-title">A Novel Contactless DC Current Sensor Using a Highly Sensitive Thin-Film Lamb Wave Resonator With a Self-Aligned Micromagnet</div>
-                            <div class="pub-authors">W. Gao, F. Gao, C. Zhu, H. Xie, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">IEEE Transactions on Industrial Electronics, 73(1), 1459-1468, 2026.</div>
+                            <div class="pub-authors">D. Yue, S. Cai, G. Yang, Y. Wu, Y. Tang, W. Zhou, W. Xu, H. Xie, F. Gao*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">Chip, 2026, 5(2): 100172.</div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- 2024 年 -->
+                <!-- 2025 -->
+                <div class="year-section">
+                    <div class="year-heading">2025</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">A High-Sensitivity Thermal-Based Integrated Sensor System With a Low-Noise Chopper-Stabilized CCIA Using Customized CMOS-MEMS Process</div>
+                            <div class="pub-authors">X. Jiang, K. Qiao, D. Yue, X. Zhang, S. Xu, H. Xie, B. Zhou, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Transactions on Instrumentation and Measurement, 2025, 74: 1-9.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Fast-Response, No-Overshoot Gas Mass Flow Controller Based on an Optimized MEMS Piezoresistive Differential Pressure Sensor</div>
+                            <div class="pub-authors">H. Ding, X. Ming, Y. Tang, Z. Zhang, H. Xie, S. Ren, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Transactions on Instrumentation and Measurement, 2025, 74: 1-10.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An auxetic meta-structure enabled soft locomotive robot</div>
+                            <div class="pub-authors">P. Jiang, Y. Deng, <strong>X. Wang</strong>, Q. Xu, R. Jiao, H. Yu*</div>
+                            <div class="pub-venue">npj Robotics, 2025, 3(1): 34.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Wireless Integrated System for COPD Monitoring Using a High-Sensitivity, Wide Dynamic Range MEMS Flow Sensor</div>
+                            <div class="pub-authors">S. Cai, D. Yue, Z. Liu, H. Xie, Y. Shen, S. Li, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Internet of Things Journal, 2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An Integrated Dual-Mode MEMS Pressure Sensor with Piezoresistive and Capacitive Sensing via a Heterogeneous Fabrication Process</div>
+                            <div class="pub-authors">H. Ding, H. Guan, W. Jiao, <strong>X. Wang</strong>, H. Xie, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Sensors Letters, 2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Novel Contactless DC Current Sensor Using a Highly Sensitive Thin-Film Lamb Wave Resonator With a Self-Aligned Micromagnet</div>
+                            <div class="pub-authors">W. Gao, F. Gao, C. Zhu, H. Xie, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Transactions on Industrial Electronics, 2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Novel Liquid-enhanced Micro Thermal Expansion-based Angular Motion Sensor with Ultra-high Sensitivity</div>
+                            <div class="pub-authors">H. Luo, Y. Wang, <strong>X. Wang</strong>, Y. Le, Q. Ke*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A fully flexible wireless passive strain sensor utilizing an ultra-thin quartz surface acoustic wave resonator</div>
+                            <div class="pub-authors">H. Guan, D. Mu, Y. Zhou, H. Zhang, H. Jin, S. Dong, <strong>X. Wang*</strong>, F. Gao*</div>
+                            <div class="pub-venue">IEEE Electron Device Letters, 2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Dual-axis capacitive sensing for a 2D electrostatic comb-drive micromirror with polymer-filled isolation trenches</div>
+                            <div class="pub-authors">Y. Cao, Y. Jia, R. Zhang, Y. Deng, H. Wang, C. Shan, Y. Yang, B. Wei, W. Zhou, <strong>X. Wang</strong>, H. Xie*</div>
+                            <div class="pub-venue">Sensors and Actuators A: Physical, 2025, 381: 116073.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Structural flexible magnetic films for biometric encryption and tactile interaction in wearable devices</div>
+                            <div class="pub-authors">R. Deng, X. Li, S. Cai, Y. Luo, Y. Zhang, B. Wang, W. Zhou, H. Xie, G. Shen, G. Gong, H. Yang, <strong>X. Wang*</strong>, D. Han*</div>
+                            <div class="pub-venue">npj Flexible Electronics, 2025, 9(1): 14.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Theoretical and experimental investigations of the CMOS compatible Pirani gauges with a temperature compensation model</div>
+                            <div class="pub-authors">S. Xu, G. Yang, J. Chen, R. Jiao, R. Wang, H. Yu, H. Xie*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">Microsystems & Nanoengineering, 2025, 11(1): 21.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Virtual precession-enabled phase error mitigation in high-precision hemispherical resonator gyroscopes</div>
+                            <div class="pub-authors">Y. Li, H. Li, F. Gao, Y. Shan, <strong>X. Wang</strong>, H. Cao, H. Xie</div>
+                            <div class="pub-venue">Sensors and Actuators A: Physical, 2025: 116976.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Switchable high-Q and high-sensitivity nanoscale MIM waveguide-based biaxial optical accelerometer</div>
+                            <div class="pub-authors">S. Zhang, Y. Shan, H. Li, <strong>X. Wang</strong>, S. Zhang, H. Xie, H. Cao*</div>
+                            <div class="pub-venue">Optics Express, 2025, 33(15): 32443-32463.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Single-detector MIR microspectrometer based on a MEMS microshutter array</div>
+                            <div class="pub-authors">X. Ding, H. Chen, Q. Liu, G. Yang, H. Zhao, <strong>X. Wang</strong>, H. Xie*</div>
+                            <div class="pub-venue">Optics Letters, 2025, 50(5): 1437-1440.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2024 -->
                 <div class="year-section">
                     <div class="year-heading">2024</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">A high-sensitivity magnetic tactile sensor with a structure-optimized Hall sensor and a flexible magnetic film</div>
-                            <div class="pub-authors">X. Li, R. Deng, W. Jiao, S. Xu, H. Xie, D. Han, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">IEEE Sensors Journal, 24(10), 15935-15944, 2024.</div>
+                            <div class="pub-title">Rotating square tessellations enabled stretchable and adaptive curved display</div>
+                            <div class="pub-authors">Y. Deng, K. Xu, R. Jiao, W. Liu, Y. Cheung, Y. Li, <strong>X. Wang</strong>, Y. Hou, W. Hong, H. Yu*</div>
+                            <div class="pub-venue">npj Flexible Electronics, 2024, 8(1): 4.</div>
                         </li>
                         <li class="pub-item">
-                            <div class="pub-title">A high-performance surface acoustic wave humidity sensor with uniform multiwrinkled graphene oxide film</div>
-                            <div class="pub-authors">G. Yang, L. Peng, S. Cai, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">ACS Sensors, 9(12), 6621-6629, 2024.</div>
+                            <div class="pub-title">A Novel Transient PDE Model for Development of Highly Sensitive Microthermal Expansion-Based Angular Motion Sensor</div>
+                            <div class="pub-authors">H. Luo, J. Cabot, <strong>X. Wang</strong>, M. Duan, W. Xu, Q. Ke, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2024, 24(6): 8045-8053.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A microgripper based on electrothermal Al–SiO2 bimorphs</div>
+                            <div class="pub-authors">H. Yang, Y. Lu, Y. Ding, Z. Zhang, A. Ren, H. Wang, <strong>X. Wang</strong>, J. Li, S. Zhang, H. Xie*</div>
+                            <div class="pub-venue">Microsystems & Nanoengineering, 2024, 10(1): 195.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A High-Performance Surface Acoustic Wave Humidity Sensor with Uniform Multiwrinkled Graphene Oxide Film</div>
+                            <div class="pub-authors">G. Yang, L. Peng, S. Cai, H. Xie, F. Gao*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">ACS sensors, 2024, 9(12): 6621-6629.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Micromachined Silicon-on-Glass Accelerometer with an Optimized Comb Finger Gap Arrangement</div>
+                            <div class="pub-authors">J. Li, R. Feng, <strong>X. Wang</strong>, H. Cao, k. Gong, H. Xie*</div>
+                            <div class="pub-venue">Micromachines, 2024, 15(9): 1173.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A High-Sensitivity Magnetic Tactile Sensor With a Structure-Optimized Hall Sensor and a Flexible Magnetic Film</div>
+                            <div class="pub-authors">X. J. Li, R. Y. Deng, W. L. Jiao, S. Z. Xu, H. K. Xie, D. Han, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2024, 24(10): 16655-16666.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Sub-5mW Monolithic CMOS-MEMS Thermal Flow Sensing SoC With ±6 m/s Linear Range</div>
+                            <div class="pub-authors">W. Xu, Z. J. Li, Z. T. Fang, B. Wang, L. Hong, G. Yang, S. Han, X. Zhao, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">IEEE Journal of Solid-State Circuits, 2024, 59(5): 1442-1453.</div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- 2023 年及更早 -->
+                <!-- 2023 -->
                 <div class="year-section">
-                    <div class="year-heading">2023 & Earlier</div>
+                    <div class="year-heading">2023</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">Vertical serpentine interconnect-enabled stretchable and curved electronics</div>
-                            <div class="pub-authors">R. Jiao, R. Wang, Y. Wang, Y.K. Cheung, X. Chen, <strong>Xiaoyi Wang</strong>, Y. Deng, H. Yu</div>
-                            <div class="pub-venue">Microsystems & Nanoengineering, 9(1), 149, 2023.</div>
+                            <div class="pub-title">A Flexible Thin-Film Pressure Sensor Based on Thermal Conduction Mechanism for Pressure, Orientation, and Mapping Signal Acquisition</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. Deng, P. Jiang, Y. K. Cheung, Z. Liu, H. Xie*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2023, 23(3): 2002-2013.</div>
                         </li>
                         <li class="pub-item">
-                            <div class="pub-title">A fast-response breathing monitoring system for human respiration disease detection</div>
-                            <div class="pub-authors"><strong>Xiaoyi Wang</strong>, Z. Ke, G. Liao, X. Pan, Y. Yang, W. Xu</div>
-                            <div class="pub-venue">IEEE Sensors Journal, 22(11), 10411-10419, 2022.</div>
+                            <div class="pub-title">An integrated capacitive sensing method for electrostatic comb-drive micromirrors</div>
+                            <div class="pub-authors">R. Zhang, J. Qu, Y. Cao, X. Zhang, Y. Jia, <strong>X. Wang</strong>, W. Zhou, H. Xie*</div>
+                            <div class="pub-venue">Sensors and Actuators A: Physical, 2023, 357: 114416.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Vertical serpentine interconnect-enabled stretchable and curved electronics</div>
+                            <div class="pub-authors">R. Jiao, R. Wang, Y. Wang, Y. Cheung, X. Chen, <strong>X. Wang</strong>, Y. Deng*, H. Yu*</div>
+                            <div class="pub-venue">Microsystems & Nanoengineering, 2023, 9(1): 149.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2022 -->
+                <div class="year-section">
+                    <div class="year-heading">2022</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">Sensitivity and Frequency Response Improvement of the Micro Thermal Convective Accelerometer With Structure Optimization</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. K. Lee, W. Xu*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2022, 31(5): 642-651.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Fast-Response Breathing Monitoring System for Human Respiration Disease Detection</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Z. Ke, G. Liao, X. Pan, Y. Yang, W. Xu*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2022, 22(11): 10281-10290.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Bidirectional CMOS-MEMS Airflow Sensor With Sub-mW Power Consumption and High Sensitivity</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, Z. Ke, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Transactions on Industrial Electronics, 2022, 69(3): 2968-2977.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Low-hysteresis, pressure-insensitive, and transparent capacitive strain sensor for human activity monitoring</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. Deng, P. Jiang, X. Chen, H. Yu*</div>
+                            <div class="pub-venue">Microsystems & Nanoengineering, 2022, 8(1): 113.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A nanoscale hot-wire flow sensor based on CMOS-MEMS technology</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Z. Fang, X. Song, W. Xu, H. Yu*</div>
+                            <div class="pub-venue">Frontiers in Mechanical Engineering, 2022, 8: 877754.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Origami paper-based stretchable humidity sensor for textile-attachable wearable electronics</div>
+                            <div class="pub-authors">X. Chen, Y. Li, <strong>X. Wang*</strong>, H. Yu*</div>
+                            <div class="pub-venue">ACS applied materials & interfaces, 2022, 14(31): 36227-36237.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2021 & Earlier -->
+                <div class="year-section">
+                    <div class="year-heading">2021 & Earlier</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">A Vertically Aligned Multiwall Carbon Nanotube-Based Humidity Sensor With Fast Response, Low Hysteresis, and High Repeatability</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. Deng, X. Chen, Z. Ma, Y. Wang, W. Xu*</div>
+                            <div class="pub-venue">IEEE Sensors Letters, 2021, 5(11): 6002304.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Wafer-Level Packaged CMOS MEMS Pirani Vacuum Gauge</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, X. Pan, A. Bermak, Y. Lee, Y. Yang*</div>
+                            <div class="pub-venue">IEEE Transactions on Electron Devices, 2021, 68(10): 5234-5240.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Reliable Liquid-Based CMOS MEMS Micro Thermal Convective Accelerometer With Enhanced Sensitivity and Limit of Detection</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. K. Lee, W. Xu*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2021, 30(4): 567-575.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Integrated Predicted Mean Vote Sensing System Using MEMS Multi-Sensors for Smart HVAC Systems</div>
+                            <div class="pub-authors">Izhar, <strong>X. Wang</strong>, W. Xu, H. Tavakkoli, Z. Yuen, X. Shan, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2021, 21(6): 7565-7574.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An ultrafast-response and flexible humidity sensor for human respiration monitoring and noncontact safety warning</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. Deng, X. Chen, P. Jiang, Y. Cheung, H. Yu*</div>
+                            <div class="pub-venue">Microsystems & Nanoengineering, 2021, 7(1): 99.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Two-Dimensional Theoretical Modeling and Experimental Investigations of Micromachined Thermal Expansion-Based Angular Motion Sensor</div>
+                            <div class="pub-authors">H. Luo, <strong>X. Wang</strong>, M. Duan, J. Cabot, Y. Lee*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2021, 30(1): 124-132.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A fast response and CMOS compatible micro gas flow sensor with thermal feedback</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. K. Lee, W. Xu*</div>
+                            <div class="pub-venue">IEEE Sensors Letters, 2020, 4(10): 1-4.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Theoretical and experimental study and compensation for temperature drifts of micro thermal convective accelerometer</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, W. Xu, Y. Lee*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2020, 29(3): 277-284.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Determination of thermal conductivities for thin-film materials in CMOS MEMS process</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, X. Zhao, Y. Yang, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Transactions on Instrumentation and Measurement, 2020, 70: 1-9.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">CMOS MEMS thermal flow sensor with enhanced sensitivity for heating, ventilation, and air conditioning application</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, R. Wang, Izhar, J. Xu, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Transactions on Industrial Electronics, 2020, 68(5): 4468-4476.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Two-dimensional CMOS MEMS thermal flow sensor with high sensitivity and improved accuracy</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, X. Zhao, Izhar, Y. Lee*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2020, 29(2): 248-254.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Theoretical modeling, numerical simulations and experimental study of micro thermal convective accelerometers</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, W. Xu, H. Luo, Y. Lee*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2019, 28(5): 790-798.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">High sensitivity and wide dynamic range thermoresistive micro calorimetric flow sensor with CMOS MEMS technology</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, Y. Chiu, Y. Lee*</div>
+                            <div class="pub-venue">IEEE Sensors Journal, 2019, 20(8): 4104-4111.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A CMOS-MEMS thermoresistive micro calorimetric flow sensor with temperature compensation</div>
+                            <div class="pub-authors">W. Xu, S. Ma, <strong>X. Wang</strong>, Y. Chiu, Y. Lee*</div>
+                            <div class="pub-venue">Journal of Microelectromechanical Systems, 2019, 28(5): 841-849.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A high performance humidity sensor based on surface acoustic wave and graphene oxide on AlN/Si layered structure</div>
+                            <div class="pub-authors">X. Le, <strong>X. Wang</strong>, J. Pang, Y. Liu, B. Fang, Z. Xu, C. Gao, Y. Xu, J. Xie*</div>
+                            <div class="pub-venue">Sensors and Actuators B: Chemical, 2018, 255: 2454-2461.</div>
                         </li>
                     </ul>
                 </div>
             </div>
         </details>
 
-        <!-- 分类二：会议论文 (Conference Papers) -->
+        <!-- ==================== 分类二：会议论文 (Conference Papers) ==================== -->
         <details class="category-details">
             <summary class="category-summary">
                 <span>会议论文 (Conference Papers)</span>
             </summary>
             <div class="category-body">
+                <!-- 2026 -->
                 <div class="year-section">
                     <div class="year-heading">2026</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">A High-Speed and Stable Flexible Electromagnetic Actuator with Enhanced Vibration Performance for Advanced Tactile Human-Machine Interfaces</div>
-                            <div class="pub-authors">B. Wang, M. Chen, S. Jiang, W. Zhou, H. Xie, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">2026 IEEE 39th International Conference on Micro Electro Mechanical Systems (MEMS), 624-627, 2026.</div>
-                        </li>
-                        <li class="pub-item">
                             <div class="pub-title">A Low Power CMOS-MEMS Monolithic Integrated Dual-Mode Thermal Sensor with Thermal Conductivity Compensation for Accurate Binary Gas Measurement</div>
-                            <div class="pub-authors">S. Xu, S. Yin, D. Yue, L. Lu, Y. Tang, H. Xie, F. Gao, <strong>Xiaoyi Wang</strong></div>
-                            <div class="pub-venue">2026 IEEE 39th International Conference on Micro Electro Mechanical Systems (MEMS), 994-997, 2026.</div>
+                            <div class="pub-authors">S. Z. Xu, S. Yin, D. Yue, L. Lu, Y. Tang, H. Xie, F. Gao*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2026 IEEE 39th International Conference on Micro Electro Mechanical Systems (MEMS), 2026: 994-997.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">High Performance Flexible Calorimetric Flow Sensor Based on Kirigami-Structured Substrate for Complex Surface Bonding Scenarios</div>
+                            <div class="pub-authors">K. Qiao, D. Yue, H. Guan, J. Wang, Z. Liu, H. Xie*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2026 IEEE 21st International Conference on Nano/Micro Engineered and Molecular Systems (NEMS), 2026: 287-290.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Sensitivity-Enhanced MEMS-ASIC Integrated Thermal Flow Sensor Based on an Improved Constant Temperature Difference Control Scheme</div>
+                            <div class="pub-authors">Ziqi Liu, Kai Qiao, et al.</div>
+                            <div class="pub-venue">2026 IEEE 21th International Conference on Nano/Micro Engineered and Molecular Systems (NEMS), 2026.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2025 -->
+                <div class="year-section">
+                    <div class="year-heading">2025</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">A Contactless DC Current Sensor Based on Thin-Film Lithium Niobate S0-Mode Lamb Wave Resonator</div>
+                            <div class="pub-authors">W. Gao, H. Guan, H. Xie, F. Gao, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2025 IEEE 38th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2025: 1067-1070.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2024 -->
+                <div class="year-section">
+                    <div class="year-heading">2024</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">An Improved Power-efficiency Microshutter Array with Thermal Isolation for Lighting Control</div>
+                            <div class="pub-authors">X. Ding, W. Jiao, Z. Xiong, G. Yang, <strong>X. Wang*</strong>, H. Xie*</div>
+                            <div class="pub-venue">2024 International Conference on Optical MEMS and Nanophotonics (OMN). IEEE, 2024: 1-2.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Highly Sensitive Magnetic Hall Sensor with a Low Noise Integrated CCIA Interface Circuit</div>
+                            <div class="pub-authors">X. Jiang, K. Qiao, X. Li, X. Zhang, B. Wang, H. Xie, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2024 International Conference on Microelectronics (ICM). Piscataway, NJ: IEEE, 2024.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Photosensitive Polyimide-SiO 2 Bimorph based Electrothermal Micromirror with High Impact Resistance</div>
+                            <div class="pub-authors">H. Yang, A. Ren, Y. Ding, Y. Lu, T. Pan, <strong>X. Wang</strong>, H. Xie*</div>
+                            <div class="pub-venue">2024 IEEE 37th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2024: 729-732.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An Electrothermal Microcage based on Al-SiO 2 Bimorph Actuators</div>
+                            <div class="pub-authors">H. Yang, Y. Lu, Y. Ding, A. Ren, <strong>X. Wang</strong>, H. Xie*</div>
+                            <div class="pub-venue">2024 IEEE 37th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2024: 725-728.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A 2-AXIS SI/AL Bimorph-Based Electrothermal Micromirror Integrated with Piezoresistors for High Resolution Position Sensing</div>
+                            <div class="pub-authors">Y. Tang, <strong>X. Wang</strong>, L. Xu, H. Xie*</div>
+                            <div class="pub-venue">2024 IEEE 37th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2024: 757-760.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2023 -->
+                <div class="year-section">
+                    <div class="year-heading">2023</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">A Smart Real-Time Human Respiratory Monitoring System Based on a High-Performance Flow Sensor and an Accurate Breathing Rate Recognition Algorithm</div>
+                            <div class="pub-authors">S. Cai, Z. Liu, G. Yang, H. Ding, H. Xie*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2023 22nd International Conference on Solid-State Sensors, Actuators and Microsystems (Transducers). IEEE, 2023: 2022-2025.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Performance Enhanced Thermal Flow Sensor with Novel Dual-Heater Structure Using CMOS Compatible Fabrication Process</div>
+                            <div class="pub-authors">Z. Liu, R. Wang, G. Yang, R. Jiao, X. Li, J. Qi, H. Yu, H. Xie*, <strong>X. Wang*</strong></div>
+                            <div class="pub-venue">2023 IEEE 36th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2023: 267-270.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A CMOS Compatible Micro Pirani Gauge with Structure Optimization for Performance Enhancement</div>
+                            <div class="pub-authors">R. Jiao, G. Yang, R. Wang, Y. Tang, Z. Liu, H. Xie, H. Yu, <strong>X. Wang*</strong>, et al.</div>
+                            <div class="pub-venue">2023 IEEE 36th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2023: 752-755.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2022 & Earlier -->
+                <div class="year-section">
+                    <div class="year-heading">2022 & Earlier</div>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-title">A CMOS-MEMS thermal convective accelerometer for performance enhancement using film thinning method</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Z. Liu, Y. Lee, H. Xie*</div>
+                            <div class="pub-venue">MicroTAS 2022: 1151-1152.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Flexible Thermal Flow Sensor with Quadruple Heaters and Suspended Structure for Performance Enhancement</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, X. Chen, Y. Deng, Y. Cheung, P. Jiang, W. Xu, H. Yu*</div>
+                            <div class="pub-venue">2022 IEEE 35th International Conference on Micro Electro Mechanical Systems Conference (MEMS). IEEE, 2022: 652-655.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A bidirectional CMOS MEMS thermal wall shear stress sensor with improved sensitivity and low power consumption</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, Y. Guo, X. Zhao, W. Xu*</div>
+                            <div class="pub-venue">2021 IEEE 34th International Conference on Micro Electro Mechanical Systems (MEMS). IEEE, 2021: 131-134.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Vertically aligned carbon nanotubes for fast humidity sensing</div>
+                            <div class="pub-authors">Z. C. Ma, <strong>X. Y. Wang</strong>, L. N. Zhang*</div>
+                            <div class="pub-venue">2020 IEEE 15th International Conference on NEMS. IEEE, 2020: 312-315.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A Reliable Liquid-Based Highly Sensitive Micro Thermoresistive Convective Accelerometer by Using 0.35μM CMOS MEMS Technology</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, G. Lim, W. Xu, Y. Lee*</div>
+                            <div class="pub-venue">2020 IEEE 33rd MEMS. IEEE, 2020: 745-748.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A coriolis force compensated micro thermal convective accelerometer with low crossing effect</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, X. Zhao, H. Luo, W. Xu, Y. Lee*</div>
+                            <div class="pub-venue">2020 IEEE 33rd MEMS. IEEE, 2020: 255-258.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An integrated CMOS MEMS gas flow sensor with detection limit towards micrometer per second</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, X. Zhao, Z. Ke, Y. Lee*</div>
+                            <div class="pub-venue">2020 IEEE 33rd MEMS. IEEE, 2020: 200-203.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Sensitivity improvement of micro thermal convective accelerometer with structure optimization: Theoretical and experimental studies</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, G. Lim, W. Xu, Y. Lee*</div>
+                            <div class="pub-venue">2019 IEEE SENSORS. IEEE, 2019: 1-4.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Theoretical and Experimental Study of z-axis Acceleration Detection of the Micro Thermal Convective Accelerometer</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, W. Xu, H. Luo, X. Zhao, Y. Lee*</div>
+                            <div class="pub-venue">2019 IEEE SENSORS. IEEE, 2019: 1-4.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">An ambient temperature compensated microthermal convective accelerometer with high sensitivity stability</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, W. Xu, Izhar, Y. Lee*</div>
+                            <div class="pub-venue">2019 Transducers & Eurosensors XXXIII. IEEE, 2019: 1827-1830.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Self-Heated Thermoresistive Flow Sensor Coated with Parylene-C for Reliability Enhancement by Using 0.35 µM CMOS MEMS Technology</div>
+                            <div class="pub-authors">W. Xu, <strong>X. Wang</strong>, M. Mousa, et al.</div>
+                            <div class="pub-venue">2019 Transducers & Eurosensors XXXIII. IEEE, 2019: 1913-1916.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">Parametric analysis and efficient optimization of micro thermal convective accelerometers with excellent sensitivity using a validated 1-D model</div>
+                            <div class="pub-authors"><strong>X. Wang</strong>, W. Xu, B. Lijin, et al.</div>
+                            <div class="pub-venue">2018 IEEE 13th NEMS. IEEE, 2018: 245-248.</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">A wireless dual-mode micro thermal flow sensor system with extended flow range by using CMOS-MEMS process</div>
+                            <div class="pub-authors">W. Xu, B. Lijin, M. Duan, <strong>X. Wang</strong>, et al.</div>
+                            <div class="pub-venue">2018 IEEE MEMS. IEEE, 2018: 824-827.</div>
                         </li>
                     </ul>
                 </div>
             </div>
         </details>
 
-        <!-- 分类三：专著与专利 (Books & Patents - 示例预留) -->
+        <!-- ==================== 分类三：授权发明专利 (Authorized Patents) ==================== -->
         <details class="category-details">
             <summary class="category-summary">
-                <span>专著与专利 (Books & Patents)</span>
+                <span>授权发明专利 (Authorized Patents)</span>
             </summary>
             <div class="category-body">
                 <div class="year-section">
-                    <div class="year-heading">相关成果</div>
+                    <div class="year-heading">专利清单</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">暂无数据或可在后续在此处添加对应的专著与专利成果。</div>
+                            <div class="pub-title">[1] 一种基于碳膜制备柔性微纳器件的方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，朱晓雅，柳子祺</div>
+                            <div class="pub-venue">发明专利，申请号：CN202511745338.4，申请日：2025.11.26</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[2] 家用鼻口呼吸检测装置</div>
+                            <div class="pub-authors">苏红，邓旭亮，<strong>王晓毅</strong>，许开元，乐玳杉，尹水翔</div>
+                            <div class="pub-venue">发明专利，申请号：CN202511717776.X，申请日：2025.11.21</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[3] 一种舌肌压力智能检测设备</div>
+                            <div class="pub-authors">苏红，<strong>王晓毅</strong>，徐明明，陈贵，杨悦，陈依灵，宁馨儿，王璧妍</div>
+                            <div class="pub-venue">发明专利，申请号：CN202511272766.X，申请日：2025.09.08</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[4] 高灵敏度嵌套轮环单片三轴 MEMS 陀螺芯片</div>
+                            <div class="pub-authors">魏雯强，曹慧亮，田慧敏，<strong>王晓毅</strong>，谢会开，杨云春，蔡麒，崔让</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024108125564，申请日：2024.06.22</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[5] 一种基于气流量传感器的呼吸频率检测方法及其应用</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，蔡仕前，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2023102020776，申请日：2023.03.06</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[6] 一种 CMOS MEMS 集成流量、气体 / 湿度传感器</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，丁厚伯，刘钟一，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2023101044504，申请日：2023.02.13</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[7] 一种 CMOS-MEMS 单片集成流量、压力传感器</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，杨盖，刘钟一，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2023101062023，申请日：2023.01.31</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[8] 基于剪纸结构的双模柔性量热式流量传感器及其制备方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，刘钟一，谢会开，方东明</div>
+                            <div class="pub-venue">发明专利，申请号：CN202211329624.9，申请日：2022.10.27</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[9] 基于热反馈的微型流量传感器、气流测量系统及测量方法</div>
+                            <div class="pub-authors">许威，<strong>王晓毅</strong>，陈妃君</div>
+                            <div class="pub-venue">发明专利，申请号：CN2020101366735，申请日：2020.03.02</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[10] 薄膜热导率的测量装置及测量方法</div>
+                            <div class="pub-authors">许威，<strong>王晓毅</strong>，赵晓锦，杨亚涛</div>
+                            <div class="pub-venue">发明专利，申请号：CN2020100371100，申请日：2020.01.14</div>
                         </li>
                     </ul>
                 </div>
             </div>
         </details>
 
-        <!-- 分类四：早期成果 (Early Works / Others) -->
+        <!-- ==================== 分类四：发明专利申请中 (Pending Patents) ==================== -->
         <details class="category-details">
             <summary class="category-summary">
-                <span>早期成果与其它 (Early Works & Others)</span>
+                <span>发明专利申请中 (Pending Patents)</span>
             </summary>
             <div class="category-body">
                 <div class="year-section">
-                    <div class="year-heading">2021 & Earlier</div>
+                    <div class="year-heading">申请中清单</div>
                     <ul class="pub-list">
                         <li class="pub-item">
-                            <div class="pub-title">A wafer-level packaged CMOS MEMS Pirani vacuum gauge</div>
-                            <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, X. Pan, A. Bermak, Y.K. Lee, Y. Yang</div>
-                            <div class="pub-venue">IEEE Transactions on Electron Devices, 68(10), 5155-5161, 2021.</div>
+                            <div class="pub-title">[1] 柔性可植入电极及其制备方法、检测系统</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，朱晓雅，柳子祺</div>
+                            <div class="pub-venue">发明专利，申请号：CN202610256501.9，申请日：2026.03.04</div>
                         </li>
                         <li class="pub-item">
-                            <div class="pub-title">Bidirectional CMOS-MEMS airflow sensor with sub-mW power consumption and high sensitivity</div>
-                            <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, Z. Ke, Y.K. Lee</div>
-                            <div class="pub-venue">IEEE Transactions on Industrial Electronics, 69(3), 3183-3192, 2021.</div>
+                            <div class="pub-title">[2] CMOS-MEMS 三维度集成技术</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，高文伟，王华，汤跃，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202610271073.7，申请日：2026.03.06</div>
                         </li>
                         <li class="pub-item">
-                            <div class="pub-title">Two-dimensional CMOS MEMS thermal flow sensor with high sensitivity and improved accuracy</div>
-                            <div class="pub-authors">W. Xu, <strong>Xiaoyi Wang</strong>, X. Zhao, Y.K. Lee</div>
-                            <div class="pub-venue">Journal of Microelectromechanical Systems, 29(2), 248-254, 2020.</div>
+                            <div class="pub-title">[3] 一种基于高热阻材料的热式流量传感器及其制备方法</div>
+                            <div class="pub-authors">谢会开，杨智文，汤跃，<strong>王晓毅</strong>，徐世震，谢博</div>
+                            <div class="pub-venue">发明专利，申请号：CN202610771302.1，申请日：2026.05.29</div>
                         </li>
                         <li class="pub-item">
-                            <div class="pub-title">A CMOS-MEMS thermoresistive micro calorimetric flow sensor with temperature compensation</div>
-                            <div class="pub-authors">W. Xu, S. Ma, <strong>Xiaoyi Wang</strong>, Y. Chiu, Y.K. Lee</div>
-                            <div class="pub-venue">Journal of Microelectromechanical Systems, 28(5), 841-849, 2019.</div>
+                            <div class="pub-title">[4] 基于 MEMS 的高灵敏超宽谱非制冷红外探测器及其制备方法</div>
+                            <div class="pub-authors">张楠，<strong>王晓毅</strong>，刘福祥，苏嘉贤，徐世震，关翰伦，郑睿瑶，高文伟，袁立栋</div>
+                            <div class="pub-venue">发明专利，申请号：CN202610898063.6，申请日：2026.06.22</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[5] 一种基于应力驱动自卷曲结构的热式流量传感器</div>
+                            <div class="pub-authors">谢会开, 杨洋, 郭家亨, 冯静雅, <strong>王晓毅</strong>, 于健宇, 郭彦, 吴文博</div>
+                            <div class="pub-venue">发明专利，申请号：CN202610538790.1，申请日：2026.04.22</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[6] 一种基于局部气压差动态特征的呼吸监测系统及方法</div>
+                            <div class="pub-authors">权哲峰, <strong>王晓毅</strong>, 乐玳杉, 陈悦, 商鹏志, 邵睿希</div>
+                            <div class="pub-venue">发明专利，申请号：CN202512060527.4，申请日：2025.12.31</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[7] CMOS MEMS 单片集成流量传感系统的制备方法、芯片结构及应用</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，江鑫波，乐玳杉，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202512000053.4，申请日：2025.12.26</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[8] 一种基于 TSV 的静电微镜和 IMU 集成构件的制备方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，高文伟，汤跃，李嘉程，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202511420953.8，申请日：2025.09.30</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[9] 基于肺功能测量指标的智能呼吸疾病检测系统</div>
+                            <div class="pub-authors">李世红, <strong>王晓毅</strong>, 蔡仕前, 谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202510987371.1，申请日：2025.07.17</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[10] 集成 IMU 及 ASIC 模块的 MEMS 微镜姿态检测控制方法及集成微系统</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，谢会开，汤跃，曹英超，李嘉程，曹慧亮</div>
+                            <div class="pub-venue">发明专利，申请号：CN2025108547842，申请日：2025.06.24</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[11] 一种新型动磁铁式电磁 MEMS 微镜及其制造方法</div>
+                            <div class="pub-authors">陈孟林，谢会开，<strong>王晓毅</strong>，薛博伦，李美荣</div>
+                            <div class="pub-venue">发明专利，申请号：CN202510647009X，申请日：2025.05.20</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[12] 一种具有聚合物加强结构的 MEMS 气体传感器及制造方法</div>
+                            <div class="pub-authors">高峰，<strong>王晓毅</strong>，卢乐，郑睿瑶，徐世震，高文伟</div>
+                            <div class="pub-venue">发明专利，申请号：CN202510567082.6，申请日：2025.04.30</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[13] 一种非均匀加热电极的优化方法及对应的 MEMS 微热板</div>
+                            <div class="pub-authors">高峰，<strong>王晓毅</strong>，高文伟，郑睿瑶，徐世震，卢乐</div>
+                            <div class="pub-venue">发明专利，申请号：CN202510567544.4，申请日：2025.04.30</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[14] 一种呼吸强度指示装置及呼吸训练器</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，蔡仕前，赵蓉恒，任帅，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2025102860509，申请日：2025.03.11</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[15] 一种 CMOS-MEMS 流量和气体热导率集成传感器及其制备方法和应用</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，徐世震，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202510266539X，申请日：2025.03.07</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[16] 基于热式流量测量的便携式肺功能仪及肺功能测量方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，谢会开，汤跃，曹英超，李嘉程，曹慧亮</div>
+                            <div class="pub-venue">发明专利，申请号：CN2025100724459，申请日：2025.01.16</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[17] 一种集成微型磁铁和声学谐振器的谐振式电流传感器</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，高文伟，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202411577857X，申请日：2024.11.06</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[18] 一种 SiC 晶圆的加工方法、MEMS 压力传感器及其制备方法</div>
+                            <div class="pub-authors">杨智文，谢会开，汤跃，<strong>王晓毅</strong>，丁厚伯，岳晋标，魏振南，姜森林</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024114374545，申请日：2024.10.15</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[19] 一种 MEMS 微镜单元、MEMS 微镜阵列及制作方法</div>
+                            <div class="pub-authors">汤跃，谢会开，<strong>王晓毅</strong>，姜森林，焦文龙，吴聪，齐强先</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024114410679，申请日：2024.10.15</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[20] 一种基于 MEMS 的法布里 - 珀罗腔及封装方法</div>
+                            <div class="pub-authors">谢会开，汤跃，严阳阳，<strong>王晓毅</strong>，姜森林，焦文龙，齐强先，李美荣，杨智文</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024114407252，申请日：2024.10.15</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[21] 一种兼容 CMOS 的皮拉尼真空计的制造及温度补偿方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，徐世震，杨盖，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202411302954.8（含多变体），申请日：2024.09.18</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[22] 全解耦四质量对称单片三轴 MEMS 陀螺芯片</div>
+                            <div class="pub-authors">曹慧亮，田慧敏，魏雯强，<strong>王晓毅</strong>，谢会开，杨云春，王馨宇，崔让</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024108125899，申请日：2024.06.22</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[23] 一种基于压阻效应的微型天平及其制作方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，丁厚伯，汤跃，亢晓涛，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024104046563，申请日：2024.04.03</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[24] 一种 CMOS MEMS 双模态气体压力传感器及制备方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，丁厚伯，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2024102024790，申请日：2024.02.23</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[25] 一种悬臂梁式霍尔电流传感器及其制作方法</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，李雪娇，杨盖，单崇书，李紫琳，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN2023114103680，申请日：2023.10.27</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[26] 适用于高湿度环境检测的气体传感器及其制备工艺</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，杨盖，刘钟一，谢会开</div>
+                            <div class="pub-venue">发明专利，申请号：CN202310106055X，申请日：2023.02.13</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[27] 基于垂直排列的碳纳米管的应变传感器</div>
+                            <div class="pub-authors"><strong>王晓毅</strong>，邓洋，于宏宇 / X. Wang, Y. Deng, H. Yu (US Patent)</div>
+                            <div class="pub-venue">CN Patent: CN2022112215206 (2022.10.08) / US Patent: US20230120331A1</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-title">[28] 液基 CMOS MEMS 微热对流加速度计</div>
+                            <div class="pub-authors">李贻昆，<strong>王晓毅</strong>，罗华煌 / Y.K. Lee, X. Wang, H. Luo</div>
+                            <div class="pub-venue">CN Patent: CN2022800116477 / PCT Patent: WO2022156819A1</div>
                         </li>
                     </ul>
                 </div>
