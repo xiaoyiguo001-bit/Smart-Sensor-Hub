@@ -22,8 +22,18 @@
         .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 10px; font-weight: 700; }
         .section-subtitle { color: var(--muted); margin-bottom: 30px; font-size: 0.95rem; }
 
-        /* 研究方向网格 */
-        .grid-2x2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        /* 2x2 网格排版：一排固定2个卡片 */
+        .grid-2x2 { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px; 
+        }
+
+        /* 移动端自适应：小屏下自动变为一排1个 */
+        @media (max-width: 768px) {
+            .grid-2x2 { grid-template-columns: 1fr; }
+        }
+
         .research-card { 
             background: white; 
             border-radius: 12px; 
@@ -69,7 +79,6 @@
         .modal-close:hover { background: #e2e8f0; color: var(--text); }
         .modal-title { color: var(--primary); font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; padding-right: 40px; }
         
-        /* 弹窗内图片样式 */
         .modal-img-container { width: 100%; margin: 15px 0 20px 0; border-radius: 8px; overflow: hidden; background: #f1f5f9; }
         .modal-img { width: 100%; height: auto; max-height: 320px; object-fit: cover; display: block; }
         .img-caption { font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 6px; }
@@ -101,28 +110,28 @@
         <p class="section-subtitle">💡 点击下方各个研究方向，查看具体开展的技术细节与相关展示</p>
 
         <div class="grid-2x2">
-            <!-- 方向 1 -->
+            <!-- 第一排 第1个 -->
             <div class="research-card" onclick="openModal('modal-1')">
                 <h3>1. 单片集成智能传感器</h3>
                 <p>CMOS-MEMS单片集成、ASIC接口电路设计、数字信号处理与边缘AI传感算法。</p>
                 <span class="click-hint">点击查看详情 →</span>
             </div>
 
-            <!-- 方向 2 -->
+            <!-- 第一排 第2个 -->
             <div class="research-card" onclick="openModal('modal-2')">
                 <h3>2. 异质异构集成传感器</h3>
                 <p>压电/磁性功能材料器件、多维感知融合与智能物联网(IoT)应用。</p>
                 <span class="click-hint">点击查看详情 →</span>
             </div>
 
-            <!-- 方向 3 -->
+            <!-- 第二排 第1个 -->
             <div class="research-card" onclick="openModal('modal-3')">
                 <h3>3. 柔性多模态感知</h3>
                 <p>融合力、声、磁、电及电化学等多模态柔性感知，服务于智能机器人与人机交互。</p>
                 <span class="click-hint">点击查看详情 →</span>
             </div>
 
-            <!-- 方向 4 -->
+            <!-- 第二排 第2个 -->
             <div class="research-card" onclick="openModal('modal-4')">
                 <h3>4. 智能感知微系统</h3>
                 <p>低功耗微型感知模组开发，应用于高精度工业检测与慢阻肺/呼吸健康监测。</p>
@@ -131,90 +140,81 @@
         </div>
     </div>
 
-    <!-- 弹窗 1：单片集成智能传感器 -->
+    <!-- 弹窗 1 -->
     <div id="modal-1" class="modal-overlay" onclick="closeModalOnBg(event, 'modal-1')">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal-1')">✕</button>
             <h2 class="modal-title">单片集成智能传感器 (CMOS-MEMS & ASIC)</h2>
-            
-            <!-- 示例图片位置 -->
             <div class="modal-img-container">
                 <img src="https://via.placeholder.com/700x350/1e88e5/ffffff?text=CMOS-MEMS+Chip+Architecture+Illustration" alt="示例架构图" class="modal-img">
                 <div class="img-caption">图 1：CMOS-MEMS 单片集成芯片架构与电路实拍示意图（示例图）</div>
             </div>
-
             <div class="modal-body">
-                <p>本方向主要研究基于标准工业 CMOS 工艺的 MEMS 传感器单片集成技术，解决传统分立式器件寄生参数大、抗干扰能力弱等瓶颈问题：</p>
+                <p>本方向主要研究基于标准工业 CMOS 工艺的 MEMS 传感器单片集成技术：</p>
                 <ul>
-                    <li><strong>CMOS-MEMS 结构电路共芯片设计</strong>：实现微结构与读出电路的高密度集成，降低寄生电容至 fF 级。</li>
-                    <li><strong>低功耗高精度 ASIC 接口电路</strong>：设计低噪声前置放大器、高分辨率 Sigma-Delta ADC 及温度补偿电路。</li>
-                    <li><strong>边缘 AI 传感算法</strong>：在芯片端嵌入数字信号处理与微型神经网络，实现本地特征提取与智能化判断。</li>
+                    <li><strong>CMOS-MEMS 结构电路共芯片设计</strong>：实现微结构与读出电路高密度集成。</li>
+                    <li><strong>低功耗高精度 ASIC 接口电路</strong>：设计低噪声前置放大器及高分辨率 ADC。</li>
+                    <li><strong>边缘 AI 传感算法</strong>：在芯片端嵌入数字信号处理与微型神经网络。</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 弹窗 2：异质异构集成传感器 -->
+    <!-- 弹窗 2 -->
     <div id="modal-2" class="modal-overlay" onclick="closeModalOnBg(event, 'modal-2')">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal-2')">✕</button>
             <h2 class="modal-title">异质异构集成传感器</h2>
-            
             <div class="modal-img-container">
                 <img src="https://via.placeholder.com/700x350/0f2c59/ffffff?text=Heterogeneous+Integration+Process" alt="示例示意图" class="modal-img">
                 <div class="img-caption">图 2：异质材料转移与多维传感器封装示意图（示例图）</div>
             </div>
-
             <div class="modal-body">
-                <p>探索新型功能材料与微系统的高效集成机制，突破传统单一硅基器件的功能局限：</p>
+                <p>探索新型功能材料与微系统的高效集成机制，突破传统硅基器件功能局限：</p>
                 <ul>
-                    <li><strong>新型功能材料集成</strong>：研究压电薄膜（AlN/PZT）、磁性纳米薄膜在硅基平台上的晶圆级异质集成工艺。</li>
-                    <li><strong>多维物理量融合感知</strong>：将声、光、电、磁等多种物理量传感单元进行三维异质堆叠集成。</li>
-                    <li><strong>智能物联网 (IoT) 节点</strong>：面向低功耗物联网应用，开发兼具能量收集与环境感知的无源自供电微系统。</li>
+                    <li><strong>新型功能材料集成</strong>：压电薄膜（AlN/PZT）与磁性纳米薄膜晶圆级集成。</li>
+                    <li><strong>多维物理量融合感知</strong>：将声、光、电、磁等多种物理量传感单元三维堆叠。</li>
+                    <li><strong>智能物联网 (IoT) 节点</strong>：开发兼具能量收集与环境感知的自供电微系统。</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 弹窗 3：柔性多模态感知 -->
+    <!-- 弹窗 3 -->
     <div id="modal-3" class="modal-overlay" onclick="closeModalOnBg(event, 'modal-3')">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal-3')">✕</button>
             <h2 class="modal-title">柔性多模态感知</h2>
-            
             <div class="modal-img-container">
                 <img src="https://via.placeholder.com/700x350/00bcd4/ffffff?text=Flexible+Multimodal+Sensors+Array" alt="示例示意图" class="modal-img">
                 <div class="img-caption">图 3：电子皮肤与柔性多模态传感器阵列实拍（示例图）</div>
             </div>
-
             <div class="modal-body">
-                <p>面向具身智能机器人与穿戴式医疗健康，研发具备高灵敏度与高顺应性的柔性感知器件：</p>
+                <p>面向具身智能机器人与穿戴式医疗健康，研发高灵敏度与高顺应性柔性器件：</p>
                 <ul>
-                    <li><strong>多模态解耦传感机制</strong>：解决柔性传感阵列中力、温、湿度等信号交叠耦合的难题。</li>
-                    <li><strong>仿生电子皮肤</strong>：设计具备触觉感知、自愈合与高拉伸性能的微纳微阵列结构。</li>
-                    <li><strong>人机交互应用</strong>：应用于灵巧手末端感知、运动姿态监测及穿戴式生理参数无感采集。</li>
+                    <li><strong>多模态解耦传感机制</strong>：解决柔性传感阵列中力、温、湿度等信号解耦难题。</li>
+                    <li><strong>仿生电子皮肤</strong>：设计具备触觉感知、自愈合与高拉伸性能的微阵列结构。</li>
+                    <li><strong>人机交互应用</strong>：应用于灵巧手末端感知与穿戴式生理参数采集。</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 弹窗 4：智能感知微系统 -->
+    <!-- 弹窗 4 -->
     <div id="modal-4" class="modal-overlay" onclick="closeModalOnBg(event, 'modal-4')">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal-4')">✕</button>
             <h2 class="modal-title">智能感知微系统 (应用落地)</h2>
-            
             <div class="modal-img-container">
                 <img src="https://via.placeholder.com/700x350/10b981/ffffff?text=Respiration+Health+Monitoring+System" alt="示例示意图" class="modal-img">
                 <div class="img-caption">图 4：面向呼吸健康监测的超低功耗微系统模组（示例图）</div>
             </div>
-
             <div class="modal-body">
-                <p>致力于将前沿学术成果转化为高可靠性的工业级与医疗级应用微系统：</p>
+                <p>致力于将学术成果转化为高可靠性的工业级与医疗级应用微系统：</p>
                 <ul>
-                    <li><strong>高精度工业微流体检测</strong>：针对航天/工业极端环境，开发高灵敏度壁面剪切力与流速监测模组。</li>
-                    <li><strong>慢性呼吸系统疾病监测</strong>：研发轻量化、便携式的气体/流量微系统，用于慢阻肺 (COPD) 与肺功能诊断。</li>
-                    <li><strong>微型化模块化集成</strong>：实现从微传感器、读出电路、蓝牙通信到便携式终端的全栈系统搭建。</li>
+                    <li><strong>高精度工业微流体检测</strong>：针对极端环境开发壁面剪切力与流速监测模组。</li>
+                    <li><strong>慢性呼吸系统疾病监测</strong>：研发轻量化气体/流量微系统用于肺功能诊断。</li>
+                    <li><strong>微型化模块化集成</strong>：实现从微传感器到终端软件的全栈系统搭建。</li>
                 </ul>
             </div>
         </div>
@@ -224,20 +224,18 @@
         <p>© 2026 Smart Sensor Group | Beijing Institute of Technology</p>
     </footer>
 
-    <!-- JavaScript 交互控制 -->
     <script>
         function openModal(id) {
             document.getElementById(id).classList.add('active');
-            document.body.style.overflow = 'hidden'; // 打开弹窗时禁止背景滚动
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(id) {
             document.getElementById(id).classList.remove('active');
-            document.body.style.overflow = 'auto'; // 关闭弹窗后恢复背景滚动
+            document.body.style.overflow = 'auto';
         }
 
         function closeModalOnBg(event, id) {
-            // 点击黑边背景区域关闭
             if (event.target.classList.contains('modal-overlay')) {
                 closeModal(id);
             }
