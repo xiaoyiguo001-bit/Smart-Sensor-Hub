@@ -21,29 +21,38 @@
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
         .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 20px; font-weight: 700; }
 
-        /* 通用卡片容器 */
-        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        /* 卡片容器 */
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; margin-bottom: 30px; position: relative; }
         .intro-text { font-size: 1.05rem; color: #334155; line-height: 1.8; margin: 0; }
 
-        /* 详细科研经历样式（上半部分） */
-        .pi-bio { font-size: 0.98rem; color: #475569; line-height: 1.8; border-bottom: 1px dashed #e2e8f0; padding-bottom: 20px; margin-bottom: 25px; }
-        .pi-bio ul { padding-left: 20px; margin: 10px 0 0 0; }
-        .pi-bio li { margin-bottom: 8px; }
+        /* 右上角嵌入照片样式 */
+        .pi-card { overflow: hidden; }
+        .pi-photo-wrapper { 
+            float: right; 
+            margin: 0 0 15px 25px; 
+            width: 150px; 
+            text-align: center;
+        }
+        .pi-photo { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            border: 1px solid #e2e8f0; 
+            display: block; 
+        }
 
-        /* 照片 + 基本个人信息样式（下半部分） */
-        .pi-card-footer { display: flex; align-items: center; gap: 30px; }
-        .pi-photo-box { width: 160px; height: 210px; flex-shrink: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-        .pi-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-        .pi-footer-info { flex: 1; }
-        .pi-name { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin: 0 0 6px 0; }
-        .pi-title { font-size: 1.05rem; color: var(--secondary); font-weight: 600; margin-bottom: 12px; }
-        .pi-email { font-size: 0.95rem; color: var(--muted); }
-        .pi-email a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+        .pi-name { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-top: 0; margin-bottom: 5px; }
+        .pi-title { font-size: 0.95rem; color: var(--secondary); font-weight: 600; margin-bottom: 15px; }
+        .pi-bio { font-size: 0.98rem; color: #475569; line-height: 1.8; }
+        .pi-bio ul { padding-left: 20px; margin: 10px 0; }
+        .pi-bio li { margin-bottom: 6px; }
+
+        /* 清除浮动 */
+        .clearfix::after { content: ""; clear: both; display: table; }
 
         @media (max-width: 600px) {
-            .pi-card-footer { flex-direction: column; text-align: center; }
-            .pi-photo-box { width: 140px; height: 185px; }
+            .pi-photo-wrapper { float: none; margin: 0 auto 20px auto; width: 140px; }
         }
 
         footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
@@ -65,37 +74,34 @@
     </nav>
 
     <div class="container">
-        <!-- 负责人介绍（已调整至顶部） -->
-        <div class="section-title">Principal Investigator</div>
-        <div class="card">
-            <!-- 上半部分：详细科研经历 -->
-            <div class="pi-bio">
-                <p style="margin-top: 0;">长期从事智能传感器、CMOS-MEMS集成技术、微流体检测及边缘计算算法方向的研究工作。</p>
-                <ul>
-                    <li><strong>主要研究方向</strong>：CMOS-MEMS单片集成、异质异构传感器、柔性多模态感知、智能感知微系统。</li>
-                    <li><strong>学术成果与项目</strong>：在领域顶级期刊与会议（如 IEEE EDL, IEEE T-ED, IEEE MEMS 等）发表多篇高水平论文，主持并参与多项国家级科研项目。</li>
-                </ul>
-            </div>
-
-            <!-- 下半部分：照片 + 基本个人信息 -->
-            <div class="pi-card-footer">
-                <div class="pi-photo-box">
-                    <img src="images/pi.jpg" alt="王晓毅 个人照片" class="pi-photo">
-                </div>
-                <div class="pi-footer-info">
-                    <h2 class="pi-name">王晓毅 (Xiaoyi Wang)</h2>
-                    <div class="pi-title">北京理工大学 准聘教授 / 博士生导师</div>
-                    <div class="pi-email">📧 邮箱：<a href="mailto:xiaoyiwang@bit.edu.cn">xiaoyiwang@bit.edu.cn</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 课题组简介（已调整至下部） -->
+        <!-- 课题组简介 -->
         <div class="section-title">About Our Group</div>
         <div class="card">
             <p class="intro-text">
                 <strong>智能微系统感知实验室（Smart Sensor Group）</strong>依托北京理工大学，致力于微纳制造、智能传感器与微系统的跨学科前沿研究。课题组聚焦于单片集成智能传感器（CMOS-MEMS & ASIC）、异质异构集成传感器、柔性多模态感知以及面向医疗健康与工业检测的低功耗智能感知微系统开发。
             </p>
+        </div>
+
+        <!-- 负责人介绍 -->
+        <div class="section-title">Principal Investigator</div>
+        <div class="card pi-card clearfix">
+            <!-- 右上角照片 -->
+            <div class="pi-photo-wrapper">
+                <img src="images/pi.jpg" alt="王晓毅 个人照片" class="pi-photo">
+            </div>
+
+            <!-- 左侧基本信息与文案 -->
+            <div class="pi-name">王晓毅 (Xiaoyi Wang)</div>
+            <div class="pi-title">北京理工大学 准聘教授 / 博士生导师</div>
+            
+            <div class="pi-bio">
+                <p>长期从事智能传感器、CMOS-MEMS集成技术、微流体检测及边缘计算算法方向的研究工作。</p>
+                <ul>
+                    <li><strong>研究方向</strong>：CMOS-MEMS单片集成、异质异构传感器、柔性多模态感知、智能感知微系统。</li>
+                    <li><strong>学术成果</strong>：在领域顶级期刊与会议（如 IEEE EDL, IEEE T-ED, IEEE MEMS 等）发表多篇高水平论文，主持并参与多项国家级科研项目。</li>
+                    <li><strong>联系邮箱</strong>：<a href="mailto:xiaoyiwang@bit.edu.cn" style="color: var(--secondary); text-decoration: none; font-weight: 600;">xiaoyiwang@bit.edu.cn</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
