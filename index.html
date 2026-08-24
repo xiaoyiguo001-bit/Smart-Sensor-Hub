@@ -8,7 +8,7 @@
         :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
         
-        /* 顶栏 */
+        /* 导航栏 */
         .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .nav-brand { font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none; padding: 16px 0; }
@@ -18,21 +18,33 @@
         .nav-links a:hover { color: white; }
         .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
 
-        /* 内容容器 */
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-        
-        /* 名片卡片 */
-        .hero-card { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 4px solid var(--secondary); }
-        .hero-title { font-size: 2.2rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700; }
-        .hero-subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 15px; font-weight: 500; }
-        .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .badge { background: #e0f2fe; color: #0369a1; font-size: 0.85rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
-        .contact-info p { margin: 6px 0; font-size: 0.95rem; }
-        .contact-info a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
+        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 20px; font-weight: 700; }
 
-        .section-title { font-size: 1.4rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin: 30px 0 20px 0; font-weight: 700; }
-        .bio-box { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); font-size: 1.05rem; line-height: 1.8; }
+        /* 卡片容器 */
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; margin-bottom: 30px; }
         
+        /* 实验室简介 */
+        .intro-text { font-size: 1.05rem; color: #334155; line-height: 1.8; }
+
+        /* 负责人介绍左右双栏布局 */
+        .pi-container { display: flex; gap: 30px; align-items: flex-start; }
+        .pi-info { flex: 1; }
+        .pi-photo-box { width: 220px; flex-shrink: 0; text-align: center; }
+        .pi-photo { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; display: block; }
+        
+        .pi-name { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-top: 0; margin-bottom: 5px; }
+        .pi-title { font-size: 0.95rem; color: var(--secondary); font-weight: 600; margin-bottom: 15px; }
+        .pi-bio { font-size: 0.98rem; color: #475569; line-height: 1.7; }
+        .pi-bio ul { padding-left: 20px; margin: 10px 0; }
+        .pi-bio li { margin-bottom: 6px; }
+
+        /* 手机端自适应垂直排列 */
+        @media (max-width: 768px) {
+            .pi-container { flex-direction: column-reverse; align-items: center; }
+            .pi-photo-box { width: 180px; margin-bottom: 15px; }
+        }
+
         footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
     </style>
 </head>
@@ -40,7 +52,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">Smart Sensor Group <span>| BIT</span></a>
-           <ul class="nav-links">
+            <ul class="nav-links">
                 <li><a href="index.html" class="active">About</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="research.html">Research</a></li>
@@ -52,25 +64,37 @@
     </nav>
 
     <div class="container">
-        <div class="hero-card">
-            <h1 class="hero-title">王晓毅 教授 </h1>
-            <div class="hero-subtitle">北京理工大学 集成电路与电子学院 | 博士生导师</div>
-            <div class="badges">
-                <span class="badge">国家级海外高层次青年人才</span>
-                <span class="badge">集成声光电教育部工程研究中心副主任</span>
-                <span class="badge">MEMS与智能微系统研究所执行所长（轮值）</span>
-            </div>
-            <div class="contact-info">
-                <p>📍 <strong>办公地址</strong>：北京市良乡校区信创楼A 808 </p>
-                <p>🏛️ <strong>学术兼职</strong>：中国仪器仪表学会声学仪器专委会委员 | 《Chip》青年编委 | 《集成传感与微系统》编委 | 迈瑞医疗顾问 | 《Micromachines》可做编辑</p>
-                <p>🔗 <strong>学术主页</strong>：<a href="https://scholar.google.com/citations?user=EBR_lOEAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
-            </div>
+        <!-- 课题组简介 -->
+        <div class="section-title">About Our Group</div>
+        <div class="card">
+            <p class="intro-text">
+                <strong>智能微系统感知实验室（Smart Sensor Group）</strong>依托北京理工大学，致力于微纳制造、智能传感器与微系统的跨学科前沿研究。课题组聚焦于单片集成智能传感器（CMOS-MEMS & ASIC）、异质异构集成传感器、柔性多模态感知以及面向医疗健康与工业检测的低功耗智能感知微系统开发。
+            </p>
         </div>
 
-        <div class="section-title">个人简介</div>
-        <div class="bio-box">
-            <strong>王晓毅教授</strong>于2020年毕业于香港科技大学获工学博士学位，2020–2021年在香港科技大学从事博士后研究。2022年加盟北京理工大学，2023年入选国家海外高层次青年人才计划。<br><br>
-            主要研究方向包括微纳制造、微机电系统(MEMS)、智能传感器与驱动器、ASIC接口电路等。主持国家自然科学基金、科技部重点研发计划、工信部项目及华为海外人才计划等国家级/省部级/企业委托项目10余项。在 <em>IEEE JSSC</em>, <em>TIE</em>, <em>TIM</em>, <em>EDL</em>, <em>Microsystems & Nanoengineering</em> 等顶级期刊与会议发表论文70余篇，申请/授权发明专利50余项。
+        <!-- 负责人介绍 (带右侧照片) -->
+        <div class="section-title">Principal Investigator</div>
+        <div class="card">
+            <div class="pi-container">
+                <!-- 左侧：文字介绍 -->
+                <div class="pi-info">
+                    <div class="pi-name">王晓毅 (Xiaoyi Wang)</div>
+                    <div class="pi-title">北京理工大学 准聘教授 / 博士生导师</div>
+                    <div class="pi-bio">
+                        <p>长期从事智能传感器、CMOS-MEMS集成技术、微流体检测及边缘计算算法方向的研究工作。</p>
+                        <ul>
+                            <li><strong>研究方向</strong>：CMOS-MEMS单片集成、异质异构传感器、柔性多模态感知、智能感知微系统。</li>
+                            <li><strong>学术成果</strong>：在领域顶级期刊与会议（如 IEEE EDL, IEEE T-ED, IEEE MEMS 等）发表多篇高水平论文，主持并参与多项国家级科研项目。</li>
+                            <li><strong>联系邮箱</strong>：<a href="mailto:xiaoyiwang@bit.edu.cn" style="color: var(--secondary); text-decoration: none; font-weight: 600;">xiaoyiwang@bit.edu.cn</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右侧：个人照片 -->
+                <div class="pi-photo-box">
+                    <img src="images/pi.jpg" alt="王晓毅 个人照片" class="pi-photo">
+                </div>
+            </div>
         </div>
     </div>
 
