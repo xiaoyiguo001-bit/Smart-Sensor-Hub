@@ -26,7 +26,7 @@
             line-height: 1.6; 
         }
         
-        /* 1. 导航栏修复：添加 CSS 隐藏滚动条并增强移动端滑动体验 */
+        /* 1. 导航栏样式 */
         .navbar { 
             background: var(--primary); 
             position: sticky; 
@@ -129,6 +129,7 @@
             margin-bottom: 30px; 
         }
 
+        /* PI个人名片卡片：图片居右 */
         .profile-header-card {
             display: flex;
             justify-content: space-between;
@@ -213,7 +214,7 @@
             text-align: justify;
         }
 
-        /* 成员网格布局 - 保证宽高比并适应手机端 */
+        /* 成员网格布局 */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -299,11 +300,11 @@
                 overflow-x: auto;
                 padding-bottom: 5px;
                 -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Firefox 隐藏滚动条 */
+                scrollbar-width: none;
             }
 
             .nav-links::-webkit-scrollbar {
-                display: none; /* Chrome / Safari 隐藏滚动条 */
+                display: none;
             }
 
             .nav-links a {
@@ -321,9 +322,9 @@
                 border-radius: 10px;
             }
 
-            /* 修复个人名片在手机端拉长问题，改为正常自上而下布局 */
+            /* 移动端调整：图片居上居中，文字在下 */
             .profile-header-card {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 align-items: center;
                 text-align: center;
             }
@@ -349,8 +350,7 @@
             .photo-box {
                 width: 150px;
                 height: 195px;
-                margin-top: 10px;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
             }
 
             .member-grid {
@@ -394,12 +394,8 @@
     </nav>
 
     <div class="container">
-        <!-- 头部个人名片卡片 -->
+        <!-- 头部个人名片卡片（文字在左，图片在右） -->
         <div class="card profile-header-card">
-            <div class="photo-box">
-                <img src="images/pi.jpg" alt="王晓毅 教授" onerror="this.src='https://via.placeholder.com/190x250?text=Photo'">
-            </div>
-
             <div class="profile-info">
                 <h1 class="profile-name">王晓毅 教授 <span>(Xiaoyi Wang)</span></h1>
                 <div class="profile-dept">北京理工大学 集成电路与电子学院 | 博士生导师</div>
@@ -415,6 +411,10 @@
                     <li>🏛️ <span><strong>学术兼职：</strong>《Chip》青年编委 | 《集成传感与微系统》编委 | 《Micromachines》客座编辑 | 迈瑞医疗顾问</span></li>
                     <li>🔗 <span><strong>学术主页：</strong><a href="https://scholar.google.com" target="_blank">Google Scholar Profile</a></span></li>
                 </ul>
+            </div>
+
+            <div class="photo-box">
+                <img src="images/pi.jpg" alt="王晓毅 教授" onerror="this.src='https://via.placeholder.com/190x250?text=Photo'">
             </div>
         </div>
 
