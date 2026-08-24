@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us | 智能微系统感知实验室 (Smart Sensor Group)</title>
+    <title>About | 智能微系统感知实验室 (Smart Sensor Group)</title>
     <style>
         :root { --primary: #0f2c59; --secondary: #1e88e5; --accent: #00bcd4; --bg: #f8fafc; --text: #1e293b; --muted: #64748b; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
@@ -19,25 +19,31 @@
         .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; min-height: 70vh; }
-        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 25px; font-weight: 700; }
+        .section-title { font-size: 1.5rem; color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 12px; margin-bottom: 20px; font-weight: 700; }
 
-        /* 卡片主体 */
-        .join-box { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); }
+        /* 通用卡片容器 */
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        .intro-text { font-size: 1.05rem; color: #334155; line-height: 1.8; margin: 0; }
+
+        /* 负责人介绍：顶部展示大照片风格 */
+        .pi-card-header { display: flex; align-items: center; gap: 30px; margin-bottom: 25px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 20px; }
+        .pi-photo-box { width: 160px; height: 210px; flex-shrink: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        .pi-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
         
-        /* 顶部展示大图 */
-        .join-img-container { width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
-        .join-img { width: 100%; height: auto; display: block; }
+        .pi-header-info { flex: 1; }
+        .pi-name { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin: 0 0 6px 0; }
+        .pi-title { font-size: 1.05rem; color: var(--secondary); font-weight: 600; margin-bottom: 12px; }
+        .pi-email { font-size: 0.95rem; color: var(--muted); }
+        .pi-email a { color: var(--secondary); text-decoration: none; font-weight: 600; }
 
-        /* 下半部分：招募文案 */
-        .recruit-card { background: #f8fafc; border-radius: 10px; padding: 20px 25px; margin-bottom: 20px; border-left: 4px solid var(--accent); }
-        .recruit-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .recruit-desc { margin: 0; font-size: 1.02rem; color: #334155; line-height: 1.8; }
-        .highlight-text { color: var(--secondary); font-weight: 600; }
+        .pi-bio { font-size: 0.98rem; color: #475569; line-height: 1.8; }
+        .pi-bio ul { padding-left: 20px; margin: 10px 0; }
+        .pi-bio li { margin-bottom: 8px; }
 
-        /* 底部联系方式 */
-        .contact-box { margin-top: 30px; padding: 20px 25px; background: #e0f2fe; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
-        .contact-email { font-size: 1.2rem; font-weight: 700; color: #0369a1; text-decoration: none; margin-left: 5px; }
-        .contact-email:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .pi-card-header { flex-direction: column; text-align: center; }
+            .pi-photo-box { width: 140px; height: 185px; }
+        }
 
         footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
     </style>
@@ -47,47 +53,48 @@
         <div class="nav-container">
             <a href="index.html" class="nav-brand">Smart Sensor Group <span>| BIT</span></a>
             <ul class="nav-links">
-                <li><a href="index.html">About</a></li>
+                <li><a href="index.html" class="active">About</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="grouplife.html">Group Life</a></li>
-                <li><a href="joinus.html" class="active">Join Us</a></li>
+                <li><a href="joinus.html">Join Us</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <div class="section-title">Join Our Group</div>
-        <div class="join-box">
-            
-            <!-- 上半部分：合影图片 -->
-            <div class="join-img-container">
-                <img src="images/joinus.jpg" alt="智能感知传感器课题组合影" class="join-img">
+        <!-- 课题组简介 -->
+        <div class="section-title">About Our Group</div>
+        <div class="card">
+            <p class="intro-text">
+                <strong>智能微系统感知实验室（Smart Sensor Group）</strong>依托北京理工大学，致力于微纳制造、智能传感器与微系统的跨学科前沿研究。课题组聚焦于单片集成智能传感器（CMOS-MEMS & ASIC）、异质异构集成传感器、柔性多模态感知以及面向医疗健康与工业检测的低功耗智能感知微系统开发。
+            </p>
+        </div>
+
+        <!-- 负责人介绍 -->
+        <div class="section-title">Principal Investigator</div>
+        <div class="card">
+            <!-- 上半部分：照片 + 基本个人信息 -->
+            <div class="pi-card-header">
+                <div class="pi-photo-box">
+                    <img src="images/pi.jpg" alt="王晓毅 个人照片" class="pi-photo">
+                </div>
+                <div class="pi-header-info">
+                    <h2 class="pi-name">王晓毅 (Xiaoyi Wang)</h2>
+                    <div class="pi-title">北京理工大学 准聘教授 / 博士生导师</div>
+                    <div class="pi-email">📧 邮箱：<a href="mailto:xiaoyiwang@bit.edu.cn">xiaoyiwang@bit.edu.cn</a></div>
+                </div>
             </div>
 
-            <!-- 下半部分：招募文案 -->
-            <div class="recruit-card">
-                <div class="recruit-title">🎓 研究生、博士及博士后招募</div>
-                <p class="recruit-desc">
-                    欢迎<strong>电子信息、机械、自动化、集成电路</strong>等学科的同学加入课题组攻读硕士、博士、博后。
-                    <span class="highlight-text">（博士和博后有推荐海外交流的机会）</span>
-                </p>
+            <!-- 下半部分：详细科研经历 -->
+            <div class="pi-bio">
+                <p>长期从事智能传感器、CMOS-MEMS集成技术、微流体检测及边缘计算算法方向的研究工作。</p>
+                <ul>
+                    <li><strong>主要研究方向</strong>：CMOS-MEMS单片集成、异质异构传感器、柔性多模态感知、智能感知微系统。</li>
+                    <li><strong>学术成果与项目</strong>：在领域顶级期刊与会议（如 IEEE EDL, IEEE T-ED, IEEE MEMS 等）发表多篇高水平论文，主持并参与多项国家级科研项目。</li>
+                </ul>
             </div>
-
-            <div class="recruit-card">
-                <div class="recruit-title">🌱 本科生科研与双创支持</div>
-                <p class="recruit-desc">
-                    也欢迎各年级的本科生到我们课题组参与<strong>双创、学科竞赛和本科毕设</strong>。
-                </p>
-            </div>
-
-            <!-- 联系邮箱 -->
-            <div class="contact-box">
-                📧 <strong>联系方式</strong>：欢迎意向同学附简历联系邮箱 
-                <a href="mailto:xiaoyiwang@bit.edu.cn" class="contact-email">xiaoyiwang@bit.edu.cn</a>
-            </div>
-
         </div>
     </div>
 
