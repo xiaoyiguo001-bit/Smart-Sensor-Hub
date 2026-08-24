@@ -13,6 +13,11 @@
             --text: #1e293b; 
             --muted: #64748b; 
         }
+        
+        * {
+            box-sizing: border-box;
+        }
+
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
             margin: 0; 
@@ -21,19 +26,62 @@
             line-height: 1.6; 
         }
         
-        /* 导航栏 */
-        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .nav-brand { font-size: 1.25rem; font-weight: 700; color: white; text-decoration: none; padding: 16px 0; }
+        /* 导航栏适配 */
+        .navbar { 
+            background: var(--primary); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+        .nav-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+        }
+        .nav-brand { 
+            font-size: 1.25rem; 
+            font-weight: 700; 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px 0; 
+        }
         .nav-brand span { color: var(--accent); }
-        .nav-links { display: flex; gap: 5px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: #cbd5e1; text-decoration: none; padding: 18px 16px; display: block; font-weight: 500; font-size: 0.95rem; border-bottom: 3px solid transparent; }
+        .nav-links { 
+            display: flex; 
+            gap: 5px; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+        }
+        .nav-links a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            padding: 18px 14px; 
+            display: block; 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            border-bottom: 3px solid transparent; 
+            white-space: nowrap;
+        }
         .nav-links a:hover { color: white; }
-        .nav-links a.active { color: white; border-bottom-color: var(--accent); background: rgba(255,255,255,0.08); }
+        .nav-links a.active { 
+            color: white; 
+            border-bottom-color: var(--accent); 
+            background: rgba(255,255,255,0.08); 
+        }
 
-        .container { max-width: 1100px; margin: 35px auto; padding: 0 20px; min-height: 75vh; }
+        .container { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 0 20px; 
+            min-height: 75vh; 
+        }
         
-        /* 一级标题（个人简介、团队成员等同级标题） */
+        /* 标题样式 */
         .section-title { 
             font-size: 1.35rem; 
             color: var(--primary); 
@@ -44,7 +92,6 @@
             font-weight: 700; 
         }
 
-        /* 二级子标题（在读学生、已毕业学生） */
         .subsection-title {
             font-size: 1.1rem;
             color: #334155;
@@ -63,7 +110,6 @@
             border-radius: 50%;
         }
 
-        /* 三级小标题（博士生、硕士生等细分） */
         .group-label {
             font-size: 0.95rem;
             color: #64748b;
@@ -73,7 +119,7 @@
             border-bottom: 1px dashed #cbd5e1;
         }
 
-        /* 卡片基础样式 */
+        /* 卡片样式 */
         .card { 
             background: white; 
             border-radius: 12px; 
@@ -83,7 +129,6 @@
             margin-bottom: 30px; 
         }
 
-        /* 头部卡片左右布局 */
         .profile-header-card {
             display: flex;
             justify-content: space-between;
@@ -101,9 +146,10 @@
             display: flex;
             align-items: baseline;
             gap: 12px;
+            flex-wrap: wrap;
         }
         .profile-name span {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #475569;
         }
@@ -115,36 +161,34 @@
             font-weight: 500;
         }
 
-        /* 标签组 */
         .tag-group { 
             display: flex; 
             flex-wrap: wrap; 
-            gap: 10px; 
+            gap: 8px; 
             margin-bottom: 25px; 
         }
         .tag { 
             background: #e0f2fe; 
             color: #0284c7; 
-            padding: 6px 14px; 
+            padding: 5px 12px; 
             border-radius: 20px; 
-            font-size: 0.88rem; 
+            font-size: 0.85rem; 
             font-weight: 600; 
         }
 
-        /* 列表条目 */
         .info-list { list-style: none; padding: 0; margin: 0; }
         .info-list li { 
             margin-bottom: 10px; 
-            font-size: 0.98rem; 
+            font-size: 0.95rem; 
             color: #334155; 
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
+            line-height: 1.5;
         }
-        .info-list li a { color: var(--secondary); text-decoration: none; }
+        .info-list li a { color: var(--secondary); text-decoration: none; word-break: break-all; }
         .info-list li a:hover { text-decoration: underline; }
 
-        /* 右上角图片区域 */
         .photo-box {
             width: 190px;
             height: 250px;
@@ -161,29 +205,27 @@
             display: block;
         }
 
-        /* 个人简介正文 */
         .bio-text {
-            font-size: 1.02rem;
+            font-size: 1rem;
             color: #334155;
             line-height: 1.8;
             margin: 0 0 18px 0;
             text-align: justify;
         }
 
-        /* 成员网格布局 */
+        /* 成员网格 */
         .member-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 18px;
             margin-bottom: 20px;
         }
 
-        /* 单个成员卡片 */
         .member-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
-            padding: 20px;
+            padding: 16px;
             text-align: center;
             transition: all 0.25s ease;
         }
@@ -195,32 +237,32 @@
         }
 
         .member-avatar {
-            width: 110px;
-            height: 135px;
+            width: 100px;
+            height: 125px;
             border-radius: 6px;
             object-fit: cover;
-            margin: 0 auto 12px auto;
+            margin: 0 auto 10px auto;
             display: block;
             border: 1px solid #e2e8f0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .member-name {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
             margin: 0 0 4px 0;
         }
 
         .member-role {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #0284c7;
             background: #e0f2fe;
             padding: 2px 8px;
             border-radius: 12px;
             display: inline-block;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .member-role.alumni-role {
@@ -229,28 +271,101 @@
         }
 
         .member-desc {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #64748b;
             margin: 0;
             line-height: 1.4;
         }
 
+        /* ================= 移动端适配 CSS ================= */
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 15px;
+            }
+            
+            .nav-brand {
+                padding: 8px 0;
+                font-size: 1.15rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .nav-links a {
+                padding: 8px 10px;
+                font-size: 0.88rem;
+            }
+
+            .container {
+                margin: 15px auto;
+                padding: 0 12px;
+            }
+
+            .card {
+                padding: 20px 18px;
+                border-radius: 10px;
+            }
+
             .profile-header-card {
                 flex-direction: column-reverse;
                 align-items: center;
+                text-align: center;
             }
+
+            .profile-name {
+                justify-content: center;
+                font-size: 1.6rem;
+            }
+
+            .profile-name span {
+                font-size: 1.2rem;
+            }
+
+            .tag-group {
+                justify-content: center;
+            }
+
+            .info-list li {
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
             .photo-box {
-                width: 160px;
-                height: 210px;
+                width: 150px;
+                height: 195px;
+                margin-bottom: 15px;
             }
-            .card { padding: 25px; }
+
+            /* 手机屏幕下学生列表保持双列并排，既清晰又节省空间 */
             .member-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .member-card {
+                padding: 12px 8px;
+            }
+
+            .member-avatar {
+                width: 85px;
+                height: 110px;
+            }
+
+            .member-name {
+                font-size: 0.95rem;
+            }
+
+            .member-desc {
+                font-size: 0.8rem;
             }
         }
-
-        footer { text-align: center; padding: 30px 0; margin-top: 60px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
+        
+        footer { text-align: center; padding: 25px 0; margin-top: 40px; background: var(--primary); color: #94a3b8; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -268,9 +383,8 @@
     </nav>
 
     <div class="container">
-        <!-- 头部卡片（左侧个人基本信息，右上角个人照片） -->
+        <!-- 头部个人名片卡片 -->
         <div class="card profile-header-card">
-            <!-- 左侧信息 -->
             <div class="profile-info">
                 <h1 class="profile-name">王晓毅 教授 <span>(Xiaoyi Wang)</span></h1>
                 <div class="profile-dept">北京理工大学 集成电路与电子学院 | 博士生导师</div>
@@ -282,13 +396,12 @@
                 </div>
 
                 <ul class="info-list">
-                    <li>📍 <strong>办公地址：</strong>北京市海淀区中关村南大街5号 北京理工大学</li>
-                    <li>🏛️ <strong>学术兼职：</strong>《Chip》青年编委 | 《集成传感与微系统》编委 | 《Micromachines》客座编辑 | 迈瑞医疗顾问</li>
-                    <li>🔗 <strong>学术主页：</strong><a href="https://scholar.google.com" target="_blank">Google Scholar Profile</a></li>
+                    <li>📍 <span><strong>办公地址：</strong>北京市海淀区中关村南大街5号 北京理工大学</span></li>
+                    <li>🏛️ <span><strong>学术兼职：</strong>《Chip》青年编委 | 《集成传感与微系统》编委 | 《Micromachines》客座编辑 | 迈瑞医疗顾问</span></li>
+                    <li>🔗 <span><strong>学术主页：</strong><a href="https://scholar.google.com" target="_blank">Google Scholar Profile</a></span></li>
                 </ul>
             </div>
 
-            <!-- 右上角图片区域 -->
             <div class="photo-box">
                 <img src="images/pi.jpg" alt="王晓毅 教授">
             </div>
@@ -316,43 +429,43 @@
             <div class="group-label">博士研究生 (Ph.D. Students - 7人)</div>
             <div class="member-grid">
                 <div class="member-card">
-                    <img src="images/members/ledaishan.jpg" alt="乐玳杉" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/ledaishan.jpg" alt="乐玳杉" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">乐玳杉</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：CMOS-MEMS传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/jiangxinbo.jpg" alt="江鑫波" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/jiangxinbo.jpg" alt="江鑫波" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">江鑫波</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：ASIC接口电路</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/gaowenwei.jpg" alt="高文伟" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/gaowenwei.jpg" alt="高文伟" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">高文伟</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：谐振式传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/zhuxiaoya.jpg" alt="朱晓雅" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/zhuxiaoya.jpg" alt="朱晓雅" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">朱晓雅</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：脑机接口神经电极</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/mingxiaochuan.jpg" alt="名小川" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/mingxiaochuan.jpg" alt="名小川" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">名小川</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：智能控制系统及算法</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/zhurui.jpg" alt="朱睿" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/zhurui.jpg" alt="朱睿" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">朱睿</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：MEMS传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/lifenglin.jpg" alt="李丰琳" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/lifenglin.jpg" alt="李丰琳" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">李丰琳</div>
                     <div class="member-role">博士研究生</div>
                     <div class="member-desc">研究方向：MEMS传感器</div>
@@ -363,67 +476,67 @@
             <div class="group-label" style="margin-top: 25px;">硕士研究生 (Master Students - 11人)</div>
             <div class="member-grid">
                 <div class="member-card">
-                    <img src="images/members/guanhanlun.jpg" alt="关翰伦" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/guanhanlun.jpg" alt="关翰伦" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">关翰伦</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：压电超声器件</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/suqing.jpg" alt="苏晴" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/suqing.jpg" alt="苏晴" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">苏晴</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：智能微系统及算法</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/yinshuixiang.jpg" alt="尹水翔" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/yinshuixiang.jpg" alt="尹水翔" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">尹水翔</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：CMOS-MEMS传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/liuziqi.jpg" alt="柳子祺" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/liuziqi.jpg" alt="柳子祺" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">柳子祺</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：ASIC接口电路</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/wancheng.jpg" alt="万程" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/wancheng.jpg" alt="万程" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">万程</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：谐振式传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/zhengruiyao.jpg" alt="郑睿瑶" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/zhengruiyao.jpg" alt="郑睿瑶" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">郑睿瑶</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：气体传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/chenzirong.jpg" alt="陈子荣" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/chenzirong.jpg" alt="陈子荣" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">陈子荣</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：压力传感器</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/xujiachen.jpg" alt="徐家琛" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/xujiachen.jpg" alt="徐家琛" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">徐家琛</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：ASIC接口电路</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/liuyichen.jpg" alt="刘益辰" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/liuyichen.jpg" alt="刘益辰" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">刘益辰</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：智能微系统及电路</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/rongzhaochuan.jpg" alt="荣兆川" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/rongzhaochuan.jpg" alt="荣兆川" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">荣兆川</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：智能微系统及算法</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/gaoguochen.jpg" alt="高国琛" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/gaoguochen.jpg" alt="高国琛" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">高国琛</div>
                     <div class="member-role">硕士研究生</div>
                     <div class="member-desc">研究方向：智能微系统及算法</div>
@@ -437,43 +550,43 @@
             <div class="group-label">毕业硕士 (Master Alumni - 7人)</div>
             <div class="member-grid">
                 <div class="member-card">
-                    <img src="images/members/yanggai.jpg" alt="杨盖" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/yanggai.jpg" alt="杨盖" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">杨盖</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：华润微</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/dinghoubo.jpg" alt="丁厚波" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/dinghoubo.jpg" alt="丁厚波" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">丁厚伯</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：沈阳仪表院</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/caishiqian.jpg" alt="蔡仕前" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/caishiqian.jpg" alt="蔡仕前" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">蔡仕前</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：快手</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/lixuejiao.jpg" alt="李雪娇" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/lixuejiao.jpg" alt="李雪娇" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">李雪娇</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：航天五院</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/qiaokai.jpg" alt="乔凯" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/qiaokai.jpg" alt="乔凯" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">乔凯</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：中科院X所</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/xushizhen.jpg" alt="徐世震" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/xushizhen.jpg" alt="徐世震" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">徐世震</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：中芯国际</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/biyan.jpg" alt="璧研" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/biyan.jpg" alt="璧研" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">璧研</div>
                     <div class="member-role alumni-role">硕士校友</div>
                     <div class="member-desc">毕业去向：X所</div>
@@ -484,19 +597,19 @@
             <div class="group-label" style="margin-top: 25px;">毕业本科生 (Undergraduate Alumni - 3人)</div>
             <div class="member-grid">
                 <div class="member-card">
-                    <img src="images/members/zhangxinyuan.jpg" alt="张新沅" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/zhangxinyuan.jpg" alt="张新沅" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">张新沅</div>
                     <div class="member-role alumni-role">本科校友</div>
                     <div class="member-desc">毕业去向：香港大学直博</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/baiyifei.jpg" alt="白逸飞" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/baiyifei.jpg" alt="白逸飞" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">白逸飞</div>
                     <div class="member-role alumni-role">本科校友</div>
                     <div class="member-desc">毕业去向：香港科大读硕</div>
                 </div>
                 <div class="member-card">
-                    <img src="images/members/chenjunfu.jpg" alt="陈俊夫" class="member-avatar" onerror="this.src='https://via.placeholder.com/110x135?text=Photo'">
+                    <img src="images/members/chenjunfu.jpg" alt="陈俊夫" class="member-avatar" onerror="this.src='https://via.placeholder.com/100x125?text=Photo'">
                     <div class="member-name">陈俊夫</div>
                     <div class="member-role alumni-role">本科校友</div>
                     <div class="member-desc">毕业去向：XXX</div>
